@@ -20,7 +20,12 @@ declare module '*.webp' {
   export default src;
 }
 
-// Cloudflare Pages Functions Types
+// Cloudflare Pages Functions & Workers Types
+interface ExecutionContext {
+  waitUntil: (promise: Promise<any>) => void;
+  passThroughOnException: () => void;
+}
+
 interface EventContext<Env, P extends string, Data> {
   request: Request;
   functionPath: string;
