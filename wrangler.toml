@@ -6,13 +6,14 @@ compatibility_flags = ["nodejs_compat"]
 # Cloudflare Pages & Static Assets output directory
 pages_build_output_dir = "./dist"
 
+# Cloudflare Workers with Static Assets support (enables direct `wrangler deploy`)
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
 # Default Environment Variables (Set GEMINI_API_KEY as an encrypted secret in Cloudflare Dashboard or via `wrangler secret put GEMINI_API_KEY`)
 [vars]
 ENVIRONMENT = "production"
 APP_NAME = "ZEECOM SOLUTION"
 APP_URL = "https://zeecomsolution.com"
-
-# When deploying as Cloudflare Worker with static asset serving:
-# [assets]
-# directory = "./dist"
-# binding = "ASSETS"
