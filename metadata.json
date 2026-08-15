@@ -1,0 +1,6 @@
+{
+  "name": "ZEECOM SOLUTION",
+  "description": "Enterprise Technology Solutions Provider: AI-Powered Surveillance & Access Control, VoIP Integrated CRM & Contact Center, and IP-Audio & PA Systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
