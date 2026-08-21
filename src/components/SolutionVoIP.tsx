@@ -290,12 +290,18 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
 
                 {/* Dial Input & Click-to-Call */}
                 <div className="mt-3 flex items-center gap-2">
+                  <label htmlFor="voip-dial-input" className="sr-only">
+                    Phone number or SIP URI
+                  </label>
                   <input
+                    id="voip-dial-input"
+                    name="dialInput"
                     type="text"
                     placeholder="Enter phone or SIP URI..."
+                    aria-label="Enter phone number or SIP URI to dial"
                     value={dialNumber}
                     onChange={(e) => setDialNumber(e.target.value)}
-                    className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
                   />
                   <button
                     onClick={() => {
@@ -303,7 +309,8 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                         setCallState('CONNECTED');
                       }
                     }}
-                    className="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-400"
+                    aria-label="Dial phone number or SIP URI"
+                    className="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400"
                   >
                     Dial
                   </button>
@@ -311,7 +318,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
               </div>
 
               {/* Certified IP Phone Models Support badge */}
-              <div className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+              <div className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-300 flex items-center justify-between">
                 <span>Compatible Ecosystem:</span>
                 <span className="text-emerald-400 font-semibold font-mono">450+ IP Phones & 210+ SIP Trunks</span>
               </div>
@@ -325,24 +332,30 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setActiveTab('crm')}
+                      aria-pressed={activeTab === 'crm'}
+                      aria-label="Show CRM Customer Dossier"
                       className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
-                        activeTab === 'crm' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-400 hover:text-white'
+                        activeTab === 'crm' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-300 hover:text-white'
                       }`}
                     >
                       CRM Customer Dossier
                     </button>
                     <button
                       onClick={() => setActiveTab('omnichannel')}
+                      aria-pressed={activeTab === 'omnichannel'}
+                      aria-label="Show Omnichannel Inbox"
                       className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
-                        activeTab === 'omnichannel' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-400 hover:text-white'
+                        activeTab === 'omnichannel' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-300 hover:text-white'
                       }`}
                     >
                       Omnichannel Inbox (SMS/WhatsApp)
                     </button>
                     <button
                       onClick={() => setActiveTab('analytics')}
+                      aria-pressed={activeTab === 'analytics'}
+                      aria-label="Show AI Speech Analytics"
                       className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
-                        activeTab === 'analytics' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-400 hover:text-white'
+                        activeTab === 'analytics' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-300 hover:text-white'
                       }`}
                     >
                       AI Speech Analytics
@@ -350,15 +363,18 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                   </div>
 
                   {/* Switch Customer Profile */}
-                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                    <span>Contact:</span>
+                  <div className="flex items-center gap-1.5 text-xs text-slate-300">
+                    <label htmlFor="voip-customer-select">Contact:</label>
                     <select
+                      id="voip-customer-select"
+                      name="customerSelect"
+                      aria-label="Select Customer Profile for Simulation"
                       value={activeCustomer.id}
                       onChange={(e) => {
                         const found = MOCK_CRM_CUSTOMERS.find(c => c.id === e.target.value);
                         if (found) setActiveCustomer(found);
                       }}
-                      className="bg-slate-900 border border-slate-800 text-white text-xs rounded px-2 py-1 focus:outline-none"
+                      className="bg-slate-900 border border-slate-800 text-white text-xs rounded px-2 py-1 focus:outline-none focus:border-emerald-500"
                     >
                       {MOCK_CRM_CUSTOMERS.map(c => (
                         <option key={c.id} value={c.id}>{c.name} ({c.company})</option>
@@ -383,7 +399,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                               {activeCustomer.status}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-400">{activeCustomer.company} • {activeCustomer.tier}</p>
+                          <p className="text-xs text-slate-300">{activeCustomer.company} • {activeCustomer.tier}</p>
                         </div>
                       </div>
 
@@ -393,6 +409,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                             setDialNumber(activeCustomer.phone);
                             setCallState('CONNECTED');
                           }}
+                          aria-label={`Initiate 1-click call to ${activeCustomer.name} at ${activeCustomer.phone}`}
                           className="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-semibold flex items-center gap-1.5"
                         >
                           <Phone className="w-3.5 h-3.5" />
@@ -404,29 +421,29 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                     {/* Customer Details Grid */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                       <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                        <span className="text-slate-400 block">Account Lead</span>
+                        <span className="text-slate-300 block font-medium">Account Lead</span>
                         <span className="text-white font-semibold">{activeCustomer.accountManager}</span>
                       </div>
                       <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                        <span className="text-slate-400 block">Open Tickets</span>
+                        <span className="text-slate-300 block font-medium">Open Tickets</span>
                         <span className="text-emerald-400 font-semibold">{activeCustomer.openTickets} Priority</span>
                       </div>
                       <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                        <span className="text-slate-400 block">Last Touchpoint</span>
+                        <span className="text-slate-300 block font-medium">Last Touchpoint</span>
                         <span className="text-white font-semibold truncate block">{activeCustomer.lastInteraction}</span>
                       </div>
                       <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                        <span className="text-slate-400 block">Email Sync</span>
+                        <span className="text-slate-300 block font-medium">Email Sync</span>
                         <span className="text-white font-semibold truncate block">{activeCustomer.email}</span>
                       </div>
                     </div>
 
                     {/* Historical Notes & Real-time Note Logger */}
                     <div>
-                      <h5 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                         <FileText className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Account Notes & Real-Time Call Log</span>
-                      </h5>
+                      </h4>
                       
                       <div className="space-y-2 mb-3">
                         {activeCustomer.notes.map((note, i) => (
@@ -438,17 +455,24 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
 
                       {/* Add note input */}
                       <div className="flex items-center gap-2">
+                        <label htmlFor="voip-crm-note-input" className="sr-only">
+                          Log in-call note directly to CRM
+                        </label>
                         <input
+                          id="voip-crm-note-input"
+                          name="crmNoteInput"
                           type="text"
                           placeholder="Log in-call note directly to CRM..."
+                          aria-label="Log in-call note directly to CRM"
                           value={crmNoteInput}
                           onChange={(e) => setCrmNoteInput(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && handleAddNote()}
-                          className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                          className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
                         />
                         <button
                           onClick={handleAddNote}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs"
+                          aria-label="Save CRM note"
+                          className="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs focus:outline-none focus:ring-2 focus:ring-emerald-400"
                         >
                           Save
                         </button>

@@ -79,99 +79,102 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
         </div>
 
         {/* 3 Core Domain Highlight Cards */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: AI Surveillance */}
-          <button
-            onClick={() => onNavigate('ai-surveillance')}
-            aria-label="Navigate to Domain 01: AI Surveillance and Access Control"
-            className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 group-hover:bg-blue-500/20 group-hover:scale-105 transition-all">
-                  <Shield className="w-6 h-6" />
+        <div className="mt-14">
+          <h2 className="sr-only">Core Solution Domains</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1: AI Surveillance */}
+            <button
+              onClick={() => onNavigate('ai-surveillance')}
+              aria-label="Navigate to Domain 01: AI Surveillance and Access Control"
+              className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 group-hover:bg-blue-500/20 group-hover:scale-105 transition-all">
+                    <Shield className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                    Domain 01
+                  </span>
                 </div>
-                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
-                  Domain 01
-                </span>
+                <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                  AI-Surveillance & Access Control
+                </h3>
+                <p className="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                  Computer vision anomaly detection, 99.87% biometric facial authentication, touchless entry, and unified command workflows.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                AI-Surveillance & Access Control
-              </h3>
-              <p className="mt-2.5 text-sm text-slate-400 leading-relaxed">
-                Computer vision anomaly detection, 99.87% biometric facial authentication, touchless entry, and unified command workflows.
-              </p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-blue-400 font-semibold">
-              <span className="flex items-center gap-1">
-                <Activity className="w-3.5 h-3.5" />
-                Live Console Simulator
-              </span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </button>
+              <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-blue-400 font-semibold">
+                <span className="flex items-center gap-1">
+                  <Activity className="w-3.5 h-3.5" />
+                  Live Console Simulator
+                </span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </button>
 
-          {/* Card 2: VoIP CRM */}
-          <button
-            onClick={() => onNavigate('voip-crm')}
-            aria-label="Navigate to Domain 02: VoIP Integrated CRM and Contact Center"
-            className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-emerald-400"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 group-hover:bg-emerald-500/20 group-hover:scale-105 transition-all">
-                  <PhoneCall className="w-6 h-6" />
+            {/* Card 2: VoIP CRM */}
+            <button
+              onClick={() => onNavigate('voip-crm')}
+              aria-label="Navigate to Domain 02: VoIP Integrated CRM and Contact Center"
+              className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 group-hover:bg-emerald-500/20 group-hover:scale-105 transition-all">
+                    <PhoneCall className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                    Domain 02
+                  </span>
                 </div>
-                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
-                  Domain 02
-                </span>
+                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  VoIP Integrated CRM & Contact Center
+                </h3>
+                <p className="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                  99.99% uptime telephony, instant CRM screen-popups, 1-click dialing, omnichannel messaging, and AI speech analytics.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
-                VoIP Integrated CRM & Contact Center
-              </h3>
-              <p className="mt-2.5 text-sm text-slate-400 leading-relaxed">
-                99.99% uptime telephony, instant CRM screen-popups, 1-click dialing, omnichannel messaging, and AI speech analytics.
-              </p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-emerald-400 font-semibold">
-              <span className="flex items-center gap-1">
-                <Zap className="w-3.5 h-3.5" />
-                Screen-Pop Demo
-              </span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </button>
+              <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-emerald-400 font-semibold">
+                <span className="flex items-center gap-1">
+                  <Zap className="w-3.5 h-3.5" />
+                  Screen-Pop Demo
+                </span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </button>
 
-          {/* Card 3: IP Audio PA */}
-          <button
-            onClick={() => onNavigate('ip-audio')}
-            aria-label="Navigate to Domain 03: IP-Audio and Public Address"
-            className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-amber-400"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 group-hover:bg-amber-500/20 group-hover:scale-105 transition-all">
-                  <Volume2 className="w-6 h-6" />
+            {/* Card 3: IP Audio PA */}
+            <button
+              onClick={() => onNavigate('ip-audio')}
+              aria-label="Navigate to Domain 03: IP-Audio and Public Address"
+              className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-amber-400"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 group-hover:bg-amber-500/20 group-hover:scale-105 transition-all">
+                    <Volume2 className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                    Domain 03
+                  </span>
                 </div>
-                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">
-                  Domain 03
-                </span>
+                <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                  IP-Audio & Public Address (PA)
+                </h3>
+                <p className="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                  123dB high-SPL clarity, 30W PoE power, 250+ addressable zones, two-way mic endpoints, and ONVIF/SIP emergency triggers.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
-                IP-Audio & Public Address (PA)
-              </h3>
-              <p className="mt-2.5 text-sm text-slate-400 leading-relaxed">
-                123dB high-SPL clarity, 30W PoE power, 250+ addressable zones, two-way mic endpoints, and ONVIF/SIP emergency triggers.
-              </p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-amber-400 font-semibold">
-              <span className="flex items-center gap-1">
-                <Volume2 className="w-3.5 h-3.5" />
-                Multi-Zone Sound Simulator
-              </span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </button>
+              <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-amber-400 font-semibold">
+                <span className="flex items-center gap-1">
+                  <Volume2 className="w-3.5 h-3.5" />
+                  Multi-Zone Sound Simulator
+                </span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Live System Metrics Bar */}

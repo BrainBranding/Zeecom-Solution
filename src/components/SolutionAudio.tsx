@@ -233,19 +233,22 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <div className="flex items-center gap-3">
                         <input
+                          id={`audio-zone-${zone.id}`}
+                          name={`zone-${zone.id}`}
                           type="checkbox"
                           checked={isSelected}
                           onChange={() => toggleZoneSelect(zone.id)}
+                          aria-label={`Select ${zone.name} for broadcast`}
                           className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-amber-500 focus:ring-0 cursor-pointer"
                         />
                         <div>
-                          <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                          <label htmlFor={`audio-zone-${zone.id}`} className="text-sm font-bold text-white flex items-center gap-2 cursor-pointer">
                             <span>{zone.name}</span>
                             <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-mono">
                               {zone.activeSpeakers} Speakers
                             </span>
-                          </h4>
-                          <div className="flex items-center gap-3 text-[11px] text-slate-400 mt-0.5">
+                          </label>
+                          <div className="flex items-center gap-3 text-[11px] text-slate-300 mt-0.5">
                             <span>{zone.category}</span>
                             <span>•</span>
                             <span className="text-amber-400 font-mono font-semibold">{zone.splRating}</span>
@@ -263,7 +266,7 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
                           ? 'bg-amber-500/20 text-amber-300'
                           : zone.status === 'BACKGROUND_MUSIC'
                           ? 'bg-cyan-500/20 text-cyan-300'
-                          : 'bg-slate-800 text-slate-400'
+                          : 'bg-slate-800 text-slate-300'
                       }`}>
                         {zone.status.replace('_', ' ')}
                       </span>
@@ -271,14 +274,19 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
 
                     {/* Zone Volume Slider */}
                     <div className="mt-3 flex items-center gap-3 text-xs pt-2 border-t border-slate-800/80">
-                      <Volume2 className="w-3.5 h-3.5 text-slate-400" />
-                      <span className="text-[11px] text-slate-400 w-16 font-mono">Vol: {zone.volume}%</span>
+                      <Volume2 className="w-3.5 h-3.5 text-slate-300" />
+                      <label htmlFor={`audio-volume-${zone.id}`} className="text-[11px] text-slate-300 w-16 font-mono">
+                        Vol: {zone.volume}%
+                      </label>
                       <input
+                        id={`audio-volume-${zone.id}`}
+                        name={`volume-${zone.id}`}
                         type="range"
                         min="0"
                         max="100"
                         value={zone.volume}
                         onChange={(e) => handleVolumeChange(zone.id, Number(e.target.value))}
+                        aria-label={`Volume level for ${zone.name}`}
                         className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
                       />
                     </div>
@@ -295,27 +303,31 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
                     <Megaphone className="w-4 h-4 text-amber-400" />
                     <span className="text-xs font-bold text-white">PA Station Paging Mic</span>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-semibold">
                     SIP & ONVIF Ready
                   </span>
                 </div>
 
                 {/* Broadcast message prompt */}
                 <div className="mt-4">
-                  <label className="text-xs font-semibold text-slate-300 block mb-1.5">
+                  <label htmlFor="audio-broadcast-message" className="text-xs font-semibold text-slate-200 block mb-1.5">
                     Live Broadcast Announcement Text:
                   </label>
                   <textarea
+                    id="audio-broadcast-message"
+                    name="broadcastMessage"
                     rows={3}
                     value={broadcastMessage}
                     onChange={(e) => setBroadcastMessage(e.target.value)}
-                    className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 resize-none"
+                    aria-label="Live Broadcast Announcement Text"
+                    className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 resize-none"
                   />
                   <div className="mt-2 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-400">Target: {selectedZoneIds.length} Zones</span>
+                    <span className="text-[11px] text-slate-300 font-medium">Target: {selectedZoneIds.length} Zones</span>
                     <button
                       onClick={handlePlayChime}
-                      className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1"
+                      aria-label="Transmit Paging Announcement"
+                      className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-amber-400"
                     >
                       <Mic className="w-3.5 h-3.5" />
                       <span>Transmit Paging</span>
