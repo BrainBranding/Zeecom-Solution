@@ -15,15 +15,28 @@ export default defineConfig(() => {
       target: 'esnext',
       minify: 'esbuild' as const,
       cssCodeSplit: true,
+      sourcemap: false,
       rollupOptions: {
         output: {
-          manualChunks: {
-            'vendor-react': ['react', 'react-dom'],
-            'vendor-icons': ['lucide-react'],
-            'vendor-anim': ['motion', 'canvas-confetti'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'vendor-react';
+              }
+              if (id.includes('lucide-react')) {
+                return 'vendor-icons';
+              }
+              if (id.includes('motion') || id.includes('canvas-confetti')) {
+                return 'vendor-anim';
+              }
+            }
           },
         },
       },
+    },
+    esbuild: {
+      legalComments: 'none',
+      drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
