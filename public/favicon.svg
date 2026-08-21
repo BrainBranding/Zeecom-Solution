@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#020617"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.4"/>
+  <path d="M16 20H48L24 44H48" stroke="url(#zeecom_grad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="20" r="3.5" fill="#38bdf8"/>
+  <circle cx="16" cy="44" r="3.5" fill="#0284c7"/>
+  <defs>
+    <linearGradient id="zeecom_grad" x1="16" y1="20" x2="48" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+</svg>

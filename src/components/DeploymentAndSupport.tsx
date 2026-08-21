@@ -150,14 +150,16 @@ export const DeploymentAndSupport: React.FC<DeploymentAndSupportProps> = ({ onOp
               </p>
 
               <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">
+                <label htmlFor="security-audit-setup" className="text-xs font-semibold text-slate-200 block mb-1">
                   Describe Existing Facility Setup:
                 </label>
                 <textarea
+                  id="security-audit-setup"
+                  name="existingSetup"
                   rows={3}
                   value={existingSetup}
                   onChange={(e) => setExistingSetup(e.target.value)}
-                  className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 resize-none"
+                  className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 resize-none"
                 />
               </div>
 
@@ -165,7 +167,8 @@ export const DeploymentAndSupport: React.FC<DeploymentAndSupportProps> = ({ onOp
                 id="btn-run-security-audit"
                 onClick={handleRunSecurityAudit}
                 disabled={isAuditing}
-                className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition-colors flex items-center gap-2"
+                aria-label={isAuditing ? "Auditing Infrastructure..." : "Run AI Security Readiness Check"}
+                className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition-colors flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               >
                 {isAuditing ? (
                   <>

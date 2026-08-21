@@ -49,7 +49,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
           <button
             id="hero-btn-ai-architect"
             onClick={() => onNavigate('ai-architect')}
-            className="px-6 py-3.5 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-slate-950 shadow-xl shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5"
+            aria-label="Launch AI Solution Architect Tool"
+            className="px-6 py-3.5 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-slate-950 shadow-xl shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-cyan-400"
           >
             <Sparkles className="w-5 h-5" />
             <span>AI Solution Architect Tool</span>
@@ -59,7 +60,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
           <button
             id="hero-btn-explore-solutions"
             onClick={() => onNavigate('ai-surveillance')}
-            className="px-6 py-3.5 rounded-xl font-semibold bg-slate-900 hover:bg-slate-850 text-white border border-slate-700 hover:border-cyan-500/50 shadow-lg transition-all flex items-center gap-2"
+            aria-label="Explore 3 Core Solution Domains"
+            className="px-6 py-3.5 rounded-xl font-semibold bg-slate-900 hover:bg-slate-850 text-white border border-slate-700 hover:border-cyan-500/50 shadow-lg transition-all flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
           >
             <Shield className="w-4 h-4 text-cyan-400" />
             <span>Explore 3 Core Domains</span>
@@ -68,7 +70,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
           <button
             id="hero-btn-book-survey"
             onClick={onOpenConsultation}
-            className="px-5 py-3.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-900/60 transition-colors flex items-center gap-1.5"
+            aria-label="Book a free on-site engineering survey"
+            className="px-5 py-3.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-900/60 transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400"
           >
             <span>Book Site Survey</span>
             <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -78,9 +81,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
         {/* 3 Core Domain Highlight Cards */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: AI Surveillance */}
-          <div
+          <button
             onClick={() => onNavigate('ai-surveillance')}
-            className="group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer flex flex-col justify-between"
+            aria-label="Navigate to Domain 01: AI Surveillance and Access Control"
+            className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-blue-400"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -105,12 +109,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
               </span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </div>
-          </div>
+          </button>
 
           {/* Card 2: VoIP CRM */}
-          <div
+          <button
             onClick={() => onNavigate('voip-crm')}
-            className="group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 cursor-pointer flex flex-col justify-between"
+            aria-label="Navigate to Domain 02: VoIP Integrated CRM and Contact Center"
+            className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-emerald-400"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -135,12 +140,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
               </span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </div>
-          </div>
+          </button>
 
           {/* Card 3: IP Audio PA */}
-          <div
+          <button
             onClick={() => onNavigate('ip-audio')}
-            className="group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 cursor-pointer flex flex-col justify-between"
+            aria-label="Navigate to Domain 03: IP-Audio and Public Address"
+            className="text-left group relative p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-amber-400"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -165,7 +171,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
               </span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </div>
-          </div>
+          </button>
         </div>
 
         {/* Live System Metrics Bar */}
@@ -176,8 +182,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
                 <span className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-white via-slate-100 to-cyan-400 bg-clip-text text-transparent">
                   {stat.value}
                 </span>
-                <span className="text-xs font-semibold text-slate-300 mt-1">{stat.label}</span>
-                <span className="text-[11px] text-slate-500 mt-0.5 hidden sm:inline">{stat.detail}</span>
+                <span className="text-xs font-semibold text-slate-200 mt-1">{stat.label}</span>
+                <span className="text-[11px] text-slate-400 mt-0.5 hidden sm:inline">{stat.detail}</span>
               </div>
             ))}
           </div>

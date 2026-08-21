@@ -1,0 +1,20 @@
+# ZEECOM SOLUTION
+
+> ZEECOM SOLUTION delivers turnkey intelligent enterprise physical security, VoIP integrated CRM contact centers, and IP-Audio mass notification systems.
+
+## Overview
+ZEECOM SOLUTION is an enterprise systems engineering and technology infrastructure provider headquartered in Lahore, Pakistan, serving industrial, corporate, educational, healthcare, and hospitality facilities worldwide.
+
+## Core Capabilities
+- **AI-Powered Surveillance & Access Control**: 4K smart dome surveillance, automated behavioral anomaly detection, touchless biometric facial recognition, and unified multi-site access control.
+- **VoIP Integrated CRM & Contact Center**: Cloud and on-premise PBX, click-to-dial, inbound caller dossiers, IVR automation, call recordings, and omnichannel CRM synchronizations.
+- **IP-Audio & Public Address Systems**: Multi-zone IP network audio, SIP/ONVIF integrated intercoms, ambient background music, and instant one-touch emergency mass notification dispatch.
+
+## Interactive Tools
+- **AI Solutions Architect**: Dynamic architectural capacity estimator and BOM generator for security, VoIP, and IP audio.
+- **Interactive System Configurator**: Live multi-zone security, telephony, and audio deployment designer with real-time budget forecasting.
+
+## Contact & Engineering Inquiries
+- Website: https://zeecomsolution.com
+- Inquiries: info@zeecomsolution.com | support@zeecomsolution.com
+- Headquarters: Lahore, Punjab, Pakistan

@@ -43,14 +43,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
 
           {/* Col 3: Solution Domains */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
               Core Solutions
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <button
                   onClick={() => onNavigate('ai-surveillance')}
-                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
+                  aria-label="Navigate to AI Surveillance and Access"
+                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 text-left text-slate-300"
                 >
                   <Shield className="w-3.5 h-3.5 text-blue-400" />
                   <span>AI Surveillance & Access</span>
@@ -59,7 +60,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               <li>
                 <button
                   onClick={() => onNavigate('voip-crm')}
-                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
+                  aria-label="Navigate to VoIP Integrated CRM"
+                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 text-left text-slate-300"
                 >
                   <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
                   <span>VoIP Integrated CRM</span>
@@ -68,7 +70,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               <li>
                 <button
                   onClick={() => onNavigate('ip-audio')}
-                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
+                  aria-label="Navigate to IP Audio and PA Systems"
+                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 text-left text-slate-300"
                 >
                   <Volume2 className="w-3.5 h-3.5 text-amber-400" />
                   <span>IP-Audio & PA Systems</span>
@@ -77,7 +80,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               <li>
                 <button
                   onClick={() => onNavigate('industries')}
-                  className="hover:text-cyan-400 transition-colors"
+                  aria-label="Navigate to Industries and Vertical Use Cases"
+                  className="hover:text-cyan-400 transition-colors text-left text-slate-300"
                 >
                   Industries & Vertical Use Cases
                 </button>
@@ -87,14 +91,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
 
           {/* Col 4: Interactive Tools */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
               Interactive Tools
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <button
                   onClick={() => onNavigate('ai-architect')}
-                  className="hover:text-cyan-400 transition-colors"
+                  aria-label="Navigate to AI Solution Architect Blueprint"
+                  className="hover:text-cyan-400 transition-colors text-left text-slate-300"
                 >
                   AI Solution Architect Blueprint
                 </button>
@@ -102,7 +107,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               <li>
                 <button
                   onClick={() => onNavigate('configurator')}
-                  className="hover:text-cyan-400 transition-colors"
+                  aria-label="Navigate to System Sizer and Quote Estimator"
+                  className="hover:text-cyan-400 transition-colors text-left text-slate-300"
                 >
                   System Sizer & Quote Estimator
                 </button>
@@ -110,7 +116,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               <li>
                 <button
                   onClick={() => onNavigate('deployment')}
-                  className="hover:text-cyan-400 transition-colors"
+                  aria-label="Navigate to AI Security Readiness Audit"
+                  className="hover:text-cyan-400 transition-colors text-left text-slate-300"
                 >
                   AI Security Readiness Audit
                 </button>
@@ -118,7 +125,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               <li>
                 <button
                   onClick={() => onNavigate('overview')}
-                  className="hover:text-cyan-400 transition-colors"
+                  aria-label="Navigate to About ZEECOM and Mission"
+                  className="hover:text-cyan-400 transition-colors text-left text-slate-300"
                 >
                   About ZEECOM & Mission
                 </button>
@@ -128,9 +136,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
 
           {/* Col 5: Contact & Head Office */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
               Head Office & Contact
-            </h4>
+            </h3>
             <div className="space-y-3 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
@@ -145,6 +153,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <div>
                   <a
                     href={`tel:${COMPANY_INFO.phoneTel}`}
+                    aria-label={`Call direct office landline at ${COMPANY_INFO.phone}`}
                     className="font-mono text-emerald-300 hover:text-emerald-200 transition-colors font-bold block"
                   >
                     {COMPANY_INFO.phone}
@@ -160,6 +169,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                     href={COMPANY_INFO.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Visit official portal"
                     className="text-cyan-300 hover:text-cyan-200 font-semibold block transition-colors"
                   >
                     {COMPANY_INFO.website}
@@ -173,6 +183,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <div>
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
+                    aria-label={`Send email to ${COMPANY_INFO.email}`}
                     className="text-slate-300 hover:text-white transition-colors"
                   >
                     {COMPANY_INFO.email}
@@ -183,7 +194,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
 
             <button
               onClick={onOpenConsultation}
-              className="mt-4 w-full py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-300 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
+              aria-label="Schedule Site Survey"
+              className="mt-4 w-full py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-300 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
               <Phone className="w-3 h-3 text-cyan-400" />
               <span>Schedule Site Survey</span>
@@ -192,7 +204,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} ZEECOM SOLUTION. All rights reserved. {COMPANY_INFO.address.full}</p>
 
           <div className="flex items-center gap-4">
@@ -201,13 +213,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               href={COMPANY_INFO.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="ZEECOM Website link"
               className="text-cyan-400 hover:underline"
             >
               {COMPANY_INFO.website}
             </a>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
+              aria-label="Scroll to top of page"
+              className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
               title="Scroll to Top"
             >
               <ArrowUp className="w-4 h-4" />

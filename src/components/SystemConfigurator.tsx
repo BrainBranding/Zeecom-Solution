@@ -124,29 +124,34 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
 
               {/* Cameras Slider */}
               <div>
-                <div className="flex items-center justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>AI Video Surveillance Cameras:</span>
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-200 mb-1.5">
+                  <label htmlFor="config-camera-qty">AI Video Surveillance Cameras:</label>
                   <span className="text-blue-400 font-mono font-bold">{cameraQty} Cameras</span>
                 </div>
                 <input
+                  id="config-camera-qty"
+                  name="cameraQty"
                   type="range"
                   min="2"
                   max="128"
                   value={cameraQty}
                   onChange={(e) => setCameraQty(Number(e.target.value))}
+                  aria-label="AI Video Surveillance Cameras Quantity"
                   className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-400"
                 />
               </div>
 
               {/* Camera Tier */}
               <div>
-                <span className="text-xs text-slate-400 block mb-1.5">Camera Sensor Capability Tier:</span>
+                <span className="text-xs text-slate-300 block mb-1.5">Camera Sensor Capability Tier:</span>
                 <div className="grid grid-cols-3 gap-2">
                   <button
                     type="button"
                     onClick={() => setCameraTier('AI_4K')}
+                    aria-pressed={cameraTier === 'AI_4K'}
+                    aria-label="Select 4K AI Smart Dome Camera Tier"
                     className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
-                      cameraTier === 'AI_4K' ? 'bg-blue-950/60 border-blue-400 text-blue-200' : 'bg-slate-950 border-slate-800 text-slate-400'
+                      cameraTier === 'AI_4K' ? 'bg-blue-950/60 border-blue-400 text-blue-200 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300'
                     }`}
                   >
                     4K AI Smart Dome
@@ -154,8 +159,10 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
                   <button
                     type="button"
                     onClick={() => setCameraTier('AI_PTZ')}
+                    aria-pressed={cameraTier === 'AI_PTZ'}
+                    aria-label="Select Optical PTZ Auto-Track Camera Tier"
                     className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
-                      cameraTier === 'AI_PTZ' ? 'bg-blue-950/60 border-blue-400 text-blue-200' : 'bg-slate-950 border-slate-800 text-slate-400'
+                      cameraTier === 'AI_PTZ' ? 'bg-blue-950/60 border-blue-400 text-blue-200 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300'
                     }`}
                   >
                     Optical PTZ Auto-Track
@@ -163,8 +170,10 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
                   <button
                     type="button"
                     onClick={() => setCameraTier('THERMAL')}
+                    aria-pressed={cameraTier === 'THERMAL'}
+                    aria-label="Select Thermal and Perimeter Camera Tier"
                     className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
-                      cameraTier === 'THERMAL' ? 'bg-blue-950/60 border-blue-400 text-blue-200' : 'bg-slate-950 border-slate-800 text-slate-400'
+                      cameraTier === 'THERMAL' ? 'bg-blue-950/60 border-blue-400 text-blue-200 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300'
                     }`}
                   >
                     Thermal & Perimeter
@@ -174,16 +183,19 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
 
               {/* Access Doors Slider */}
               <div className="pt-2">
-                <div className="flex items-center justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>Biometric Touchless Access Control Doors:</span>
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-200 mb-1.5">
+                  <label htmlFor="config-access-doors">Biometric Touchless Access Control Doors:</label>
                   <span className="text-blue-400 font-mono font-bold">{accessDoors} Doors / Turnstiles</span>
                 </div>
                 <input
+                  id="config-access-doors"
+                  name="accessDoors"
                   type="range"
                   min="1"
                   max="64"
                   value={accessDoors}
                   onChange={(e) => setAccessDoors(Number(e.target.value))}
+                  aria-label="Biometric Touchless Access Control Doors Quantity"
                   className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-400"
                 />
               </div>
@@ -196,34 +208,39 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
                   <PhoneCall className="w-4 h-4" />
                   <span>Domain 02: VoIP CRM & Contact Center</span>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">99.99% Uptime</span>
+                <span className="text-xs text-slate-300 font-mono">99.99% Uptime</span>
               </div>
 
               {/* VoIP Seats Slider */}
               <div>
-                <div className="flex items-center justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>VoIP Telephony Agent Seats & IP Endpoints:</span>
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-200 mb-1.5">
+                  <label htmlFor="config-voip-seats">VoIP Telephony Agent Seats & IP Endpoints:</label>
                   <span className="text-emerald-400 font-mono font-bold">{voipSeats} Users</span>
                 </div>
                 <input
+                  id="config-voip-seats"
+                  name="voipSeats"
                   type="range"
                   min="5"
                   max="250"
                   value={voipSeats}
                   onChange={(e) => setVoipSeats(Number(e.target.value))}
+                  aria-label="VoIP Telephony Agent Seats and IP Endpoints Quantity"
                   className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
                 />
               </div>
 
               {/* VoIP Tier */}
               <div>
-                <span className="text-xs text-slate-400 block mb-1.5">Telephony & CRM Integration Tier:</span>
+                <span className="text-xs text-slate-300 block mb-1.5">Telephony & CRM Integration Tier:</span>
                 <div className="grid grid-cols-3 gap-2">
                   <button
                     type="button"
                     onClick={() => setVoipTier('STANDARD')}
+                    aria-pressed={voipTier === 'STANDARD'}
+                    aria-label="Select Standard Cloud PBX Tier"
                     className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
-                      voipTier === 'STANDARD' ? 'bg-emerald-950/60 border-emerald-400 text-emerald-200' : 'bg-slate-950 border-slate-800 text-slate-400'
+                      voipTier === 'STANDARD' ? 'bg-emerald-950/60 border-emerald-400 text-emerald-200 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300'
                     }`}
                   >
                     Standard Cloud PBX
@@ -231,8 +248,10 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
                   <button
                     type="button"
                     onClick={() => setVoipTier('CRM_OMNICHANNEL')}
+                    aria-pressed={voipTier === 'CRM_OMNICHANNEL'}
+                    aria-label="Select CRM Screen-Pop and SMS Tier"
                     className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
-                      voipTier === 'CRM_OMNICHANNEL' ? 'bg-emerald-950/60 border-emerald-400 text-emerald-200' : 'bg-slate-950 border-slate-800 text-slate-400'
+                      voipTier === 'CRM_OMNICHANNEL' ? 'bg-emerald-950/60 border-emerald-400 text-emerald-200 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300'
                     }`}
                   >
                     CRM Screen-Pop + SMS
@@ -240,8 +259,10 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
                   <button
                     type="button"
                     onClick={() => setVoipTier('AI_CONTACT_CENTER')}
+                    aria-pressed={voipTier === 'AI_CONTACT_CENTER'}
+                    aria-label="Select AI Speech Contact Center Tier"
                     className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
-                      voipTier === 'AI_CONTACT_CENTER' ? 'bg-emerald-950/60 border-emerald-400 text-emerald-200' : 'bg-slate-950 border-slate-800 text-slate-400'
+                      voipTier === 'AI_CONTACT_CENTER' ? 'bg-emerald-950/60 border-emerald-400 text-emerald-200 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300'
                     }`}
                   >
                     AI Speech Contact Center
@@ -257,36 +278,42 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
                   <Volume2 className="w-4 h-4" />
                   <span>Domain 03: IP-Audio & Public Address</span>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">123dB SPL PoE</span>
+                <span className="text-xs text-slate-300 font-mono">123dB SPL PoE</span>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <div className="flex items-center justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                    <span>PoE IP Speakers:</span>
+                  <div className="flex items-center justify-between text-xs font-semibold text-slate-200 mb-1.5">
+                    <label htmlFor="config-speaker-qty">PoE IP Speakers:</label>
                     <span className="text-amber-400 font-mono font-bold">{speakerQty} Units</span>
                   </div>
                   <input
+                    id="config-speaker-qty"
+                    name="speakerQty"
                     type="range"
                     min="4"
                     max="100"
                     value={speakerQty}
                     onChange={(e) => setSpeakerQty(Number(e.target.value))}
+                    aria-label="PoE IP Speakers Quantity"
                     className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                    <span>Addressable Zones:</span>
+                  <div className="flex items-center justify-between text-xs font-semibold text-slate-200 mb-1.5">
+                    <label htmlFor="config-audio-zones">Addressable Zones:</label>
                     <span className="text-amber-400 font-mono font-bold">{audioZones} Zones</span>
                   </div>
                   <input
+                    id="config-audio-zones"
+                    name="audioZones"
                     type="range"
                     min="1"
                     max="24"
                     value={audioZones}
                     onChange={(e) => setAudioZones(Number(e.target.value))}
+                    aria-label="Addressable Audio Zones Quantity"
                     className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
                   />
                 </div>

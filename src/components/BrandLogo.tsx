@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../assets/images/zeecom_logo_1786826914877.jpg';
+import logoImg from '../assets/images/zeecom_logo.webp';
 
 interface BrandLogoProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -37,6 +37,9 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           <img
             src={logoImg}
             alt="ZEECOM SOLUTION Logo"
+            width="56"
+            height="56"
+            loading="eager"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />

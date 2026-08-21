@@ -233,11 +233,12 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
 
         {/* Quick Presets Bar */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          <span className="text-xs font-semibold text-slate-400 mr-1">Quick Presets:</span>
+          <span className="text-xs font-semibold text-slate-300 mr-1">Quick Presets:</span>
           {presets.map((preset, idx) => (
             <button
               key={idx}
               onClick={() => applyPreset(preset)}
+              aria-label={`Apply preset ${preset.name}`}
               className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/40 text-xs font-medium text-slate-300 transition-colors"
             >
               {preset.name}
@@ -261,31 +262,36 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
 
             {/* Facility Type */}
             <div>
-              <label className="text-xs font-semibold text-slate-300 block mb-1.5">
+              <label htmlFor="architect-facility-type" className="text-xs font-semibold text-slate-200 block mb-1.5">
                 Facility Type / Sector:
               </label>
               <input
+                id="architect-facility-type"
+                name="facilityType"
                 type="text"
                 value={facilityType}
                 onChange={(e) => setFacilityType(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white focus:outline-none focus:border-purple-500"
+                className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
                 placeholder="e.g. Corporate HQ, Hospital, University Campus, Logistics Hub"
               />
             </div>
 
             {/* Facility Size Slider */}
             <div>
-              <div className="flex items-center justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                <span>Facility Floor Area:</span>
+              <div className="flex items-center justify-between text-xs font-semibold text-slate-200 mb-1.5">
+                <label htmlFor="architect-facility-size">Facility Floor Area:</label>
                 <span className="text-purple-300 font-mono font-bold">{facilitySize.toLocaleString()} sq ft</span>
               </div>
               <input
+                id="architect-facility-size"
+                name="facilitySize"
                 type="range"
                 min="5000"
                 max="500000"
                 step="5000"
                 value={facilitySize}
                 onChange={(e) => setFacilitySize(Number(e.target.value))}
+                aria-label="Facility floor area in square feet"
                 className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-400"
               />
             </div>
@@ -293,63 +299,71 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
             {/* Building & Floor Counts */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">
+                <label htmlFor="architect-building-count" className="text-xs font-semibold text-slate-200 block mb-1">
                   Buildings:
                 </label>
                 <input
+                  id="architect-building-count"
+                  name="buildingCount"
                   type="number"
                   min="1"
                   max="50"
                   value={buildingCount}
                   onChange={(e) => setBuildingCount(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white focus:outline-none focus:border-purple-500"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
                 />
               </div>
               <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">
+                <label htmlFor="architect-floor-count" className="text-xs font-semibold text-slate-200 block mb-1">
                   Floors per Building:
                 </label>
                 <input
+                  id="architect-floor-count"
+                  name="floorCount"
                   type="number"
                   min="1"
                   max="100"
                   value={floorCount}
                   onChange={(e) => setFloorCount(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white focus:outline-none focus:border-purple-500"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
                 />
               </div>
             </div>
 
             {/* Staff / Users */}
             <div>
-              <label className="text-xs font-semibold text-slate-300 block mb-1.5">
+              <label htmlFor="architect-user-count" className="text-xs font-semibold text-slate-200 block mb-1.5">
                 Employees / Daily Occupants:
               </label>
               <input
+                id="architect-user-count"
+                name="userCount"
                 type="number"
                 min="5"
                 max="10000"
                 value={userCount}
                 onChange={(e) => setUserCount(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white focus:outline-none focus:border-purple-500"
+                className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
               />
             </div>
 
             {/* Deployment Preference */}
             <div>
-              <label className="text-xs font-semibold text-slate-300 block mb-1.5">
+              <span className="text-xs font-semibold text-slate-200 block mb-1.5">
                 Deployment Model Preference:
-              </label>
+              </span>
               <div className="grid grid-cols-3 gap-2">
                 {(['Hybrid', 'Cloud-Native', 'On-Premise'] as const).map((mode) => (
                   <button
                     key={mode}
                     type="button"
                     onClick={() => setDeploymentPreference(mode)}
+                    aria-pressed={deploymentPreference === mode}
+                    aria-label={`Select ${mode} deployment model`}
                     className={`py-2 px-2 rounded-lg text-xs font-medium border transition-colors ${
                       deploymentPreference === mode
                         ? 'bg-purple-950/60 border-purple-500 text-purple-200 font-bold'
-                        : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'
+                        : 'bg-slate-900 border-slate-800 text-slate-300 hover:text-white'
                     }`}
                   >
                     {mode}
@@ -360,14 +374,16 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
 
             {/* Operational Pain Points */}
             <div>
-              <label className="text-xs font-semibold text-slate-300 block mb-1.5">
+              <label htmlFor="architect-pain-points" className="text-xs font-semibold text-slate-200 block mb-1.5">
                 Key Operational Challenges & Requirements:
               </label>
               <textarea
+                id="architect-pain-points"
+                name="painPoints"
                 rows={2}
                 value={painPoints}
                 onChange={(e) => setPainPoints(e.target.value)}
-                className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 resize-none"
+                className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 resize-none"
                 placeholder="Describe your security, phone routing, or audio broadcast needs..."
               />
             </div>

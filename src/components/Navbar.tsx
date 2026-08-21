@@ -40,6 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
               href={`tel:${COMPANY_INFO.phoneTel}`}
               className="text-emerald-400 hover:text-emerald-300 font-mono font-bold flex items-center gap-1 transition-colors"
               title="Direct Telephone Line"
+              aria-label={`Call ZEECOM at ${COMPANY_INFO.phone}`}
             >
               <Phone className="w-3 h-3 text-emerald-400" />
               <span>{COMPANY_INFO.phone}</span>
@@ -50,6 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
               target="_blank"
               rel="noopener noreferrer"
               className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium hidden sm:flex items-center gap-1"
+              aria-label="Visit official website"
             >
               <Globe className="w-3 h-3" />
               <span>{COMPANY_INFO.website}</span>
@@ -58,6 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
             <button
               onClick={onOpenConsultation}
               className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex items-center gap-1 text-[11px]"
+              aria-label="Request Site Survey"
             >
               Request Site Survey →
             </button>
@@ -92,6 +95,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
                 id="nav-btn-solutions-menu"
                 onClick={() => setSolutionsDropdownOpen(!solutionsDropdownOpen)}
                 onMouseEnter={() => setSolutionsDropdownOpen(true)}
+                aria-haspopup="true"
+                aria-expanded={solutionsDropdownOpen}
+                aria-label="Core Solutions Dropdown Menu"
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${
                   ['ai-surveillance', 'voip-crm', 'ip-audio'].includes(activeSection)
                     ? 'text-cyan-400 bg-slate-900'
@@ -218,13 +224,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
             <button
               onClick={onOpenConsultation}
               className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500 text-slate-950"
+              aria-label="Request Consultation"
             >
               Consult
             </button>
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

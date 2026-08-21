@@ -13,6 +13,51 @@ export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
+    // Explicit SEO & AI Agent Crawlers direct fast paths
+    if (url.pathname === "/robots.txt") {
+      const robotsContent = `User-agent: *\nAllow: /\n\nSitemap: https://zeecomsolution.com/sitemap.xml\n`;
+      return new Response(robotsContent, {
+        headers: {
+          "Content-Type": "text/plain; charset=utf-8",
+          "Cache-Control": "public, max-age=86400",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
+    }
+
+    if (url.pathname === "/sitemap.xml") {
+      const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://zeecomsolution.com/</loc>\n    <lastmod>2026-08-21</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n`;
+      return new Response(sitemapContent, {
+        headers: {
+          "Content-Type": "application/xml; charset=utf-8",
+          "Cache-Control": "public, max-age=86400",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
+    }
+
+    if (url.pathname === "/llms.txt") {
+      const llmsTxt = `# ZEECOM SOLUTION\n\n> ZEECOM SOLUTION delivers turnkey intelligent enterprise physical security, VoIP integrated CRM contact centers, and IP-Audio mass notification systems.\n\n## Overview\nZEECOM SOLUTION is an enterprise systems engineering and technology infrastructure provider headquartered in Lahore, Pakistan.\n\n## Core Capabilities\n- **AI-Powered Surveillance & Access Control**: 4K smart dome surveillance, automated behavioral anomaly detection, touchless biometric facial recognition.\n- **VoIP Integrated CRM & Contact Center**: Cloud and on-premise PBX, click-to-dial, inbound caller dossiers, IVR automation, call recordings.\n- **IP-Audio & Public Address Systems**: Multi-zone IP network audio, SIP/ONVIF integrated intercoms, ambient background music, and instant emergency override.\n\n## Tools\n- AI Solutions Architect: Capacity estimator and BOM generator.\n- System Configurator: Live deployment designer and budget forecaster.\n\n## Contact\n- Website: https://zeecomsolution.com\n- Email: info@zeecomsolution.com\n`;
+      return new Response(llmsTxt, {
+        headers: {
+          "Content-Type": "text/markdown; charset=utf-8",
+          "Cache-Control": "public, max-age=86400",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
+    }
+
+    if (url.pathname === "/llms-full.txt") {
+      const llmsFullTxt = `# ZEECOM SOLUTION — Full Architectural & Technical Reference\n\n## Enterprise Engineering Architecture\n\n### 1. AI-Powered Physical Surveillance & Access Control\n- Edge AI optical analytics: ANPR/LPR, perimeter intrusion tripwires, dwell-time anomalies.\n- Biometric Readers: Dual-lens anti-spoofing facial recognition (<0.2s verification), optical fingerprint, RFID/MIFARE.\n- Security Integration: ONVIF Profile S/G/T/M compliance, RTSP direct streaming, integration with fire alarms.\n\n### 2. VoIP Unified Communications & CRM Integration\n- PBX Infrastructure: Asterisk / FreePBX / FreeSWITCH SIP core with TLS/SRTP encryption.\n- CRM Integrations: HubSpot, Salesforce, Zoho CRM, Bitrix24, Microsoft Dynamics 365.\n- Call Flow Features: Automatic Call Distribution (ACD), Interactive Voice Response (IVR), Queue Callback, Call Recording.\n\n### 3. IP-Audio Public Address & Intercom Systems\n- Audio Transports: Dante, AES67, SIP/RTP multicast streaming.\n- Endpoint Hardware: IP ceiling speakers (15W/30W PoE+), outdoor horn speakers (120dB+ SPL), two-way intercom endpoints.\n- Zone Management: Software-defined zone matrix, priority emergency override broadcast.\n\n## Organization\n- Company: ZEECOM SOLUTION\n- Location: Lahore, Pakistan\n- Web: https://zeecomsolution.com\n`;
+      return new Response(llmsFullTxt, {
+        headers: {
+          "Content-Type": "text/markdown; charset=utf-8",
+          "Cache-Control": "public, max-age=86400",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
+    }
+
     // API Routes Handlers directly on the Edge Worker
     if (url.pathname === "/api/health") {
       return new Response(
