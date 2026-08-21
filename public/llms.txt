@@ -1,20 +1,23 @@
 # ZEECOM SOLUTION
 
-> ZEECOM SOLUTION delivers turnkey intelligent enterprise physical security, VoIP integrated CRM contact centers, and IP-Audio mass notification systems.
+> ZEECOM SOLUTION is an enterprise technology infrastructure and systems engineering firm providing turnkey AI physical security, VoIP integrated CRM contact center telephony, and IP-Audio mass notification systems.
 
-## Overview
-ZEECOM SOLUTION is an enterprise systems engineering and technology infrastructure provider headquartered in Lahore, Pakistan, serving industrial, corporate, educational, healthcare, and hospitality facilities worldwide.
+For complete architectural details, see our [Full Technical Reference](https://zeecomsolution.com/llms-full.txt).
 
-## Core Capabilities
-- **AI-Powered Surveillance & Access Control**: 4K smart dome surveillance, automated behavioral anomaly detection, touchless biometric facial recognition, and unified multi-site access control.
-- **VoIP Integrated CRM & Contact Center**: Cloud and on-premise PBX, click-to-dial, inbound caller dossiers, IVR automation, call recordings, and omnichannel CRM synchronizations.
-- **IP-Audio & Public Address Systems**: Multi-zone IP network audio, SIP/ONVIF integrated intercoms, ambient background music, and instant one-touch emergency mass notification dispatch.
+## Core Capabilities & Solutions
 
-## Interactive Tools
-- **AI Solutions Architect**: Dynamic architectural capacity estimator and BOM generator for security, VoIP, and IP audio.
-- **Interactive System Configurator**: Live multi-zone security, telephony, and audio deployment designer with real-time budget forecasting.
+- [AI-Powered Surveillance & Access Control](https://zeecomsolution.com/#ai-surveillance): Edge AI computer vision, 4K optical analytics, 99.87% biometric facial authentication, touchless entry, and multi-site unified security command.
+- [VoIP Integrated CRM & Contact Center](https://zeecomsolution.com/#voip-crm): High-availability SIP telephony, instant CRM screen-popups, 1-click dialing, call recording, IVR queues, and omnichannel messaging.
+- [IP-Audio & Public Address Systems](https://zeecomsolution.com/#ip-audio): Multi-zone IP network audio, 123dB high-SPL clarity, 30W PoE power, two-way intercoms, and ONVIF/SIP emergency paging broadcast.
 
-## Contact & Engineering Inquiries
-- Website: https://zeecomsolution.com
-- Inquiries: info@zeecomsolution.com | support@zeecomsolution.com
-- Headquarters: Lahore, Punjab, Pakistan
+## Interactive Tools & Simulators
+
+- [AI Solutions Architect](https://zeecomsolution.com/#ai-architect): Dynamic capacity planner and bill-of-materials (BOM) generator for enterprise infrastructure.
+- [System Configurator](https://zeecomsolution.com/#configurator): Live multi-zone security, telephony, and audio deployment designer with real-time budget forecasting.
+
+## Company & Contact Information
+
+- [Official Website](https://zeecomsolution.com): Primary portal for enterprise solutions and technical specifications.
+- [Technical Inquiries](mailto:info@zeecomsolution.com): Direct contact for engineering consultations, RFPs, and site surveys.
+- [Customer Support](mailto:support@zeecomsolution.com): 24/7 technical support and mission-critical SLA assistance.
+

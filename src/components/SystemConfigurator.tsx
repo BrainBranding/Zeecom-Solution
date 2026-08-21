@@ -327,7 +327,7 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                 <div>
                   <h3 className="text-lg font-bold text-white">Estimated Investment Summary</h3>
-                  <p className="text-xs text-slate-400 mt-0.5">Real-time equipment & carrier estimate</p>
+                  <p className="text-xs text-slate-300 mt-0.5">Real-time equipment & carrier estimate</p>
                 </div>
                 <span className="p-2 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                   <DollarSign className="w-5 h-5" />
@@ -337,45 +337,45 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
               {/* Cost Highlight Totals */}
               <div className="mt-6 space-y-4">
                 <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                  <span className="text-xs text-slate-400 block mb-1">
+                  <span className="text-xs text-slate-300 block mb-1">
                     Turnkey Hardware, Commissioning & Integration:
                   </span>
                   <div className="text-3xl font-extrabold text-white font-mono flex items-baseline gap-1">
                     <span>${totalHardware.toLocaleString()}</span>
-                    <span className="text-xs text-slate-400 font-normal">USD (One-time)</span>
+                    <span className="text-xs text-slate-300 font-normal">USD (One-time)</span>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                  <span className="text-xs text-slate-400 block mb-1">
+                  <span className="text-xs text-slate-300 block mb-1">
                     Cloud Infrastructure, SIP Trunks & 24/7 SLA:
                   </span>
                   <div className="text-2xl font-bold text-cyan-300 font-mono flex items-baseline gap-1">
                     <span>${totalMonthly.toLocaleString()}</span>
-                    <span className="text-xs text-slate-400 font-normal">USD / Month</span>
+                    <span className="text-xs text-slate-300 font-normal">USD / Month</span>
                   </div>
                 </div>
               </div>
 
               {/* Itemized Breakdown List */}
               <div className="mt-6 space-y-2 text-xs">
-                <span className="text-slate-400 uppercase tracking-wider text-[11px] font-bold block mb-2">
+                <span className="text-slate-300 uppercase tracking-wider text-[11px] font-bold block mb-2">
                   System Equipment Schedule:
                 </span>
                 <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">• {cameraQty}x AI Cameras ({cameraTier})</span>
+                  <span className="text-slate-200">• {cameraQty}x AI Cameras ({cameraTier})</span>
                   <span className="text-white font-mono font-semibold">${(cameraQty * cameraUnitCost).toLocaleString()}</span>
                 </div>
                 <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">• {accessDoors}x Biometric Access Doors</span>
+                  <span className="text-slate-200">• {accessDoors}x Biometric Access Doors</span>
                   <span className="text-white font-mono font-semibold">${(accessDoors * accessDoorUnitCost).toLocaleString()}</span>
                 </div>
                 <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">• {voipSeats}x VoIP Agent Phones/Seats</span>
+                  <span className="text-slate-200">• {voipSeats}x VoIP Agent Phones/Seats</span>
                   <span className="text-white font-mono font-semibold">${(voipSeats * voipPhoneUnitCost).toLocaleString()}</span>
                 </div>
                 <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">• {speakerQty}x 30W PoE / Horn Speakers</span>
+                  <span className="text-slate-200">• {speakerQty}x 30W PoE / Horn Speakers</span>
                   <span className="text-white font-mono font-semibold">${(speakerQty * speakerUnitCost).toLocaleString()}</span>
                 </div>
               </div>

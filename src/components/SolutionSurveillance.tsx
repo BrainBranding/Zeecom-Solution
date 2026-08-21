@@ -96,11 +96,11 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white">{cap.title}</h3>
-                    <p className="text-xs text-slate-400">{cap.description}</p>
+                    <p className="text-xs text-slate-300">{cap.description}</p>
                   </div>
                 </div>
 
-                <ul className="space-y-2 mt-4 text-sm text-slate-300">
+                <ul className="space-y-2 mt-4 text-sm text-slate-200">
                   {cap.items.map((item, itemIdx) => (
                     <li key={itemIdx} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
@@ -128,7 +128,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                   Live AI Engine Active
                 </span>
               </div>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-300 mt-1">
                 Test real-time video analytics, touchless facial MFA authentication, loitering anomaly alerts, and facility lockdown triggers.
               </p>
             </div>
@@ -137,10 +137,11 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => setShowAiBoxes(!showAiBoxes)}
+                aria-label="Toggle AI Vision Bounding Boxes"
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors flex items-center gap-1.5 ${
                   showAiBoxes
                     ? 'bg-blue-500/20 text-blue-300 border-blue-500/40'
-                    : 'bg-slate-800 text-slate-400 border-slate-700'
+                    : 'bg-slate-800 text-slate-300 border-slate-700'
                 }`}
               >
                 <Eye className="w-3.5 h-3.5" />
@@ -149,6 +150,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
 
               <button
                 onClick={triggerAnomaly}
+                aria-label="Simulate Anomaly Security Threat"
                 className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-colors flex items-center gap-1.5"
               >
                 <AlertTriangle className="w-3.5 h-3.5" />
@@ -157,6 +159,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
 
               <button
                 onClick={toggleLockdown}
+                aria-label="Engage or Release Facility Lockdown"
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 ${
                   lockdownActive
                     ? 'bg-red-600 text-white border-red-500 shadow-lg shadow-red-600/30 animate-pulse'
@@ -169,7 +172,8 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
 
               <button
                 onClick={resetSimulator}
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition-colors"
+                aria-label="Reset Security Console"
+                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition-colors"
                 title="Reset Console"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
@@ -179,7 +183,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
 
           {/* Lockdown Banner if active */}
           {lockdownActive && (
-            <div className="mt-4 p-3 rounded-xl bg-red-950/80 border border-red-600 text-red-200 text-xs font-bold flex items-center justify-between animate-pulse">
+            <div className="mt-4 p-3 rounded-xl bg-red-950/80 border border-red-600 text-red-100 text-xs font-bold flex items-center justify-between animate-pulse">
               <div className="flex items-center gap-2">
                 <Flame className="w-4 h-4 text-red-400" />
                 <span>FACILITY LOCKDOWN PROTOCOL ENGAGED: ALL PERIMETER ACCESS DOORS ELECTRICALLY SEALED & IP-AUDIO EVACUATION BROADCAST TRIGGERED.</span>
@@ -214,10 +218,10 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                     <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                     <span className="font-mono font-bold text-white">{selectedCam.id}</span>
                     <span className="text-slate-400">|</span>
-                    <span className="text-slate-300 font-medium">{selectedCam.name}</span>
+                    <span className="text-slate-200 font-medium">{selectedCam.name}</span>
                   </div>
 
-                  <div className="flex items-center gap-2 font-mono text-[11px] bg-slate-900/80 px-2.5 py-1 rounded-md border border-slate-800 text-slate-300">
+                  <div className="flex items-center gap-2 font-mono text-[11px] bg-slate-900/80 px-2.5 py-1 rounded-md border border-slate-800 text-slate-200">
                     <span className="text-cyan-400">{selectedCam.resolution}</span>
                     <span>{selectedCam.fps} FPS</span>
                     <span className="text-emerald-400">ONVIF SECURE</span>
@@ -235,7 +239,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                       <div className="text-[11px] font-semibold text-emerald-300 mt-1">
                         Sarah Jenkins (VP)
                       </div>
-                      <div className="text-[10px] text-slate-400">Access: GRANTED • Turnstile 2</div>
+                      <div className="text-[10px] text-slate-200">Access: GRANTED • Turnstile 2</div>
                     </div>
 
                     {/* Bounding Box 2: Anomaly / Detection */}
@@ -247,7 +251,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                         <div className="text-[11px] font-semibold text-amber-200 mt-1">
                           Loitering Anomaly &gt; 120s
                         </div>
-                        <div className="text-[10px] text-slate-300">Bay 2 Perimeter Warning Dispatched</div>
+                        <div className="text-[10px] text-slate-200">Bay 2 Perimeter Warning Dispatched</div>
                       </div>
                     ) : (
                       <div className="relative p-3 rounded-lg border border-cyan-400/60 bg-cyan-950/20 backdrop-blur-xs w-44 ml-auto">
@@ -263,11 +267,11 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                 {/* Video HUD Bottom Overlay */}
                 <div className="relative z-10 flex flex-wrap items-center justify-between text-xs bg-slate-900/90 backdrop-blur-md p-2.5 rounded-lg border border-slate-800">
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-400 text-[11px]">Location:</span>
+                    <span className="text-slate-300 text-[11px]">Location:</span>
                     <span className="text-white font-medium">{selectedCam.location}</span>
                   </div>
                   <div className="flex items-center gap-3 text-[11px]">
-                    <span className="text-slate-400">Active Detections:</span>
+                    <span className="text-slate-300">Active Detections:</span>
                     {selectedCam.aiDetections.map((det, i) => (
                       <span key={i} className="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 border border-slate-700 font-mono">
                         {det.label}
@@ -283,6 +287,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                   <button
                     key={cam.id}
                     onClick={() => setSelectedCam(cam)}
+                    aria-label={`Select video feed for ${cam.name}`}
                     className={`p-3 rounded-xl text-left border transition-all ${
                       selectedCam.id === cam.id
                         ? 'bg-blue-950/60 border-blue-400 shadow-md shadow-blue-500/20'
@@ -294,7 +299,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                       <span className={`w-2 h-2 rounded-full ${cam.status === 'ALERT' ? 'bg-amber-400 animate-ping' : 'bg-emerald-400'}`} />
                     </div>
                     <div className="text-xs font-semibold text-slate-200 mt-1 truncate">{cam.name}</div>
-                    <div className="text-[10px] text-slate-400 truncate">{cam.location}</div>
+                    <div className="text-[10px] text-slate-300 truncate">{cam.location}</div>
                   </button>
                 ))}
               </div>
@@ -326,10 +331,10 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-white truncate">{log.userName}</span>
-                        <span className="font-mono text-[10px] text-slate-400">{log.timestamp}</span>
+                        <span className="font-mono text-[10px] text-slate-300">{log.timestamp}</span>
                       </div>
                       <div className="flex items-center justify-between mt-1 text-[11px]">
-                        <span className="text-slate-400">{log.authMethod}</span>
+                        <span className="text-slate-300">{log.authMethod}</span>
                         <span
                           className={`font-semibold px-1.5 py-0.5 rounded text-[10px] ${
                             log.status === 'GRANTED'
@@ -340,14 +345,14 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                           {log.status} ({log.matchScore})
                         </span>
                       </div>
-                      <div className="text-[10px] text-slate-400 mt-1 truncate">{log.location}</div>
+                      <div className="text-[10px] text-slate-300 mt-1 truncate">{log.location}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Access Control Tech Highlight */}
-              <div className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400">
+              <div className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-300">
                 <div className="flex items-center gap-1.5 text-blue-300 font-semibold mb-1">
                   <Lock className="w-3.5 h-3.5" />
                   <span>Hardware Hardened & Anti-Spoof</span>

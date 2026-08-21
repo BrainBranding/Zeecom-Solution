@@ -182,20 +182,20 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                 {/* Call Status Display Screen */}
                 <div className={`mt-4 p-4 rounded-xl text-center border transition-all ${
                   callState === 'RINGING'
-                    ? 'bg-amber-950/40 border-amber-500 text-amber-200 animate-pulse'
+                    ? 'bg-amber-950/60 border-amber-400 text-amber-100 animate-pulse'
                     : callState === 'CONNECTED'
-                    ? 'bg-emerald-950/40 border-emerald-500 text-emerald-200'
+                    ? 'bg-emerald-950/60 border-emerald-400 text-emerald-100'
                     : callState === 'LOGGED'
-                    ? 'bg-blue-950/40 border-blue-500 text-blue-200'
-                    : 'bg-slate-900 border-slate-800 text-slate-400'
+                    ? 'bg-blue-950/60 border-blue-400 text-blue-100'
+                    : 'bg-slate-900 border-slate-800 text-slate-200'
                 }`}>
                   {callState === 'RINGING' && (
                     <div>
-                      <div className="text-xs font-bold uppercase text-amber-400 tracking-wider">
+                      <div className="text-xs font-bold uppercase text-amber-300 tracking-wider">
                         Incoming VIP Call...
                       </div>
                       <div className="text-base font-bold text-white mt-1">{activeCustomer.name}</div>
-                      <div className="text-xs text-slate-300">{activeCustomer.company}</div>
+                      <div className="text-xs text-slate-200">{activeCustomer.company}</div>
                       <div className="mt-3 flex justify-center gap-3">
                         <button
                           onClick={answerCall}
@@ -224,7 +224,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                         <span className="font-mono text-sm">{formatTime(callDuration)}</span>
                       </div>
                       <div className="text-sm font-bold text-white mt-2">{activeCustomer.name}</div>
-                      <div className="text-xs text-slate-300 font-mono">{activeCustomer.phone}</div>
+                      <div className="text-xs text-slate-200 font-mono">{activeCustomer.phone}</div>
 
                       {/* Live Audio Waveform Simulation */}
                       <div className="my-3 flex items-center justify-center gap-1 h-6">
@@ -242,7 +242,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                         <button
                           onClick={() => setIsMuted(!isMuted)}
                           className={`p-2 rounded-lg border text-xs ${
-                            isMuted ? 'bg-amber-500/20 border-amber-500 text-amber-300' : 'bg-slate-800 border-slate-700 text-slate-300'
+                            isMuted ? 'bg-amber-500/20 border-amber-500 text-amber-300' : 'bg-slate-800 border-slate-700 text-slate-200'
                           }`}
                           title="Mute Mic"
                         >
@@ -263,14 +263,14 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                     <div className="py-2">
                       <Check className="w-6 h-6 text-blue-400 mx-auto mb-1" />
                       <div className="text-xs font-bold text-white">Call Logged into CRM Automatically!</div>
-                      <p className="text-[10px] text-slate-400 mt-1">Duration: {formatTime(callDuration)} • Audio Recording Archived</p>
+                      <p className="text-[11px] text-slate-200 mt-1">Duration: {formatTime(callDuration)} • Audio Recording Archived</p>
                     </div>
                   )}
 
                   {callState === 'IDLE' && (
                     <div className="py-2">
-                      <div className="text-xs text-slate-400 font-mono">Softphone Ready • Line 1 Idle</div>
-                      <div className="text-[11px] text-slate-500 mt-0.5">Click any CRM contact to 1-Click Dial</div>
+                      <div className="text-xs text-slate-200 font-mono font-medium">Softphone Ready • Line 1 Idle</div>
+                      <div className="text-xs text-emerald-300 font-medium mt-1">Click any CRM contact to 1-Click Dial</div>
                     </div>
                   )}
                 </div>
@@ -515,16 +515,16 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                       <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                        <span className="text-slate-400 block mb-1">Key Topics Discussed</span>
+                        <span className="text-slate-200 font-medium block mb-1">Key Topics Discussed</span>
                         <div className="flex flex-wrap gap-1.5">
-                          <span className="px-1.5 py-0.5 rounded bg-slate-900 text-cyan-300 border border-slate-800 text-[10px]">PoE Power Budget</span>
-                          <span className="px-1.5 py-0.5 rounded bg-slate-900 text-emerald-300 border border-slate-800 text-[10px]">123dB Horn Speakers</span>
-                          <span className="px-1.5 py-0.5 rounded bg-slate-900 text-purple-300 border border-slate-800 text-[10px]">99.99% Uptime SLA</span>
+                          <span className="px-1.5 py-0.5 rounded bg-slate-900 text-cyan-300 border border-slate-700 text-[10px]">PoE Power Budget</span>
+                          <span className="px-1.5 py-0.5 rounded bg-slate-900 text-emerald-300 border border-slate-700 text-[10px]">123dB Horn Speakers</span>
+                          <span className="px-1.5 py-0.5 rounded bg-slate-900 text-purple-300 border border-slate-700 text-[10px]">99.99% Uptime SLA</span>
                         </div>
                       </div>
                       <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                        <span className="text-slate-400 block mb-1">AI Next-Best-Action Script</span>
-                        <p className="text-slate-300 text-[11px]">
+                        <span className="text-slate-200 font-medium block mb-1">AI Next-Best-Action Script</span>
+                        <p className="text-slate-200 text-[11px]">
                           "Confirm next maintenance window and suggest adding 2-way intercom station."
                         </p>
                       </div>
@@ -534,7 +534,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
               </div>
 
               {/* CRM Two-Way Sync Feature Banner */}
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-300 font-medium">
                 <span>Automatic 2-Way Sync with Salesforce, HubSpot, Zendesk, & Custom CRMs.</span>
                 <span className="text-emerald-400 font-semibold font-mono">Zero Manual Data Entry</span>
               </div>
@@ -578,7 +578,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
-              <span className="text-xs text-slate-400">Upgrade to unified cloud telephony?</span>
+              <span className="text-xs text-slate-300 font-medium">Upgrade to unified cloud telephony?</span>
               <button
                 onClick={onOpenConsultation}
                 className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors shadow-lg shadow-emerald-500/20"
