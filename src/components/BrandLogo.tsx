@@ -1,5 +1,4 @@
 import React from 'react';
-import logoImg from '../assets/images/zeecom_logo.webp';
 
 interface BrandLogoProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -31,18 +30,46 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       onClick={onClick}
       className={`inline-flex items-center gap-3 ${onClick ? 'cursor-pointer select-none group' : ''} ${className}`}
     >
-      {/* Logo Icon Mark */}
+      {/* Logo Vector Icon Mark (100% Reliable, Zero-Latency Vector) */}
       <div className={`relative ${current.icon} rounded-xl p-0.5 bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 shadow-md shadow-cyan-500/20 shrink-0 transition-transform ${onClick ? 'group-hover:scale-105' : ''}`}>
-        <div className="w-full h-full rounded-[10px] bg-slate-950 overflow-hidden flex items-center justify-center relative">
-          <img
-            src={logoImg}
-            alt="ZEECOM SOLUTION Logo"
-            width="56"
-            height="56"
-            loading="eager"
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
+        <div className="w-full h-full rounded-[10px] bg-slate-950 overflow-hidden flex items-center justify-center relative p-1.5">
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full"
+            aria-label="ZEECOM SOLUTION Brand Icon"
+          >
+            <defs>
+              <linearGradient id="zeecom_mark_grad" x1="8" y1="10" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#38bdf8" />
+                <stop offset="0.5" stopColor="#06b6d4" />
+                <stop offset="1" stopColor="#6366f1" />
+              </linearGradient>
+              <radialGradient id="zeecom_glow" cx="24" cy="24" r="16" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#0ea5e9" stopOpacity="0.4" />
+                <stop offset="1" stopColor="#0ea5e9" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            {/* Background ambient glow */}
+            <circle cx="24" cy="24" r="16" fill="url(#zeecom_glow)" />
+            {/* Geometric Cyber Z-Chassis */}
+            <path
+              d="M10 13H38L16 35H38"
+              stroke="url(#zeecom_mark_grad)"
+              strokeWidth="4.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            {/* Optical AI Camera Aperture Node */}
+            <circle cx="38" cy="13" r="3.2" fill="#38bdf8" stroke="#020617" strokeWidth="1.2" />
+            <circle cx="10" cy="13" r="2.2" fill="#06b6d4" />
+            {/* Telecom / Audio Signal Nodes */}
+            <circle cx="16" cy="35" r="2.2" fill="#818cf8" />
+            <circle cx="38" cy="35" r="3.2" fill="#6366f1" stroke="#020617" strokeWidth="1.2" />
+            {/* Central Optical Focus Point */}
+            <circle cx="26" cy="24" r="1.8" fill="#38bdf8" />
+          </svg>
         </div>
       </div>
 
