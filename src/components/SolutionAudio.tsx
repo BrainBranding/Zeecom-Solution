@@ -246,11 +246,11 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
                         <div>
                           <label htmlFor={`audio-zone-${zone.id}`} className="text-sm sm:text-base font-bold text-white flex flex-wrap items-center gap-2 cursor-pointer">
                             <span>{zone.name}</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-mono">
+                            <span className="text-[11px] sm:text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-mono">
                               {zone.activeSpeakers} Speakers
                             </span>
                           </label>
-                          <div className="flex flex-wrap items-center gap-2 text-xs text-slate-300 mt-0.5">
+                          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-300 mt-0.5">
                             <span>{zone.category}</span>
                             <span>•</span>
                             <span className="text-amber-400 font-mono font-semibold">{zone.splRating}</span>
@@ -261,7 +261,7 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
                       </div>
 
                       {/* Zone Status Tag */}
-                      <span className={`text-[10px] px-2 py-0.5 rounded font-mono font-semibold ${
+                      <span className={`text-[10px] sm:text-[11px] px-2 py-0.5 rounded font-mono font-semibold ${
                         zone.status === 'EMERGENCY_ALERT'
                           ? 'bg-red-500 text-white animate-pulse'
                           : zone.status === 'BROADCASTING'
@@ -305,7 +305,7 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
                     <Megaphone className="w-4 h-4 text-amber-400" />
                     <span className="text-xs sm:text-sm font-bold text-white">PA Station Paging Mic</span>
                   </div>
-                  <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-semibold">
+                  <span className="text-[11px] sm:text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-semibold">
                     SIP & ONVIF Ready
                   </span>
                 </div>

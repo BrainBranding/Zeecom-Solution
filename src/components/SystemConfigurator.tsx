@@ -144,7 +144,7 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
               {/* Camera Tier */}
               <div>
                 <span className="text-xs sm:text-sm text-slate-300 block mb-1.5 font-medium">Camera Sensor Capability Tier:</span>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 xs:grid-cols-3 gap-2">
                   <button
                     type="button"
                     onClick={() => setCameraTier('AI_4K')}
@@ -233,7 +233,7 @@ ZEECOM SOLUTION • Carrier-Grade Reliability • 99.99% SLA
               {/* VoIP Tier */}
               <div>
                 <span className="text-xs sm:text-sm text-slate-300 block mb-1.5 font-medium">Telephony & CRM Integration Tier:</span>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 xs:grid-cols-3 gap-2">
                   <button
                     type="button"
                     onClick={() => setVoipTier('STANDARD')}

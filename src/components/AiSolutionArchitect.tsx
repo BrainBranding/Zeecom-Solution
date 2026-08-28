@@ -352,7 +352,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
               <span className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1.5">
                 Deployment Model Preference:
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 xs:grid-cols-3 gap-2">
                 {(['Hybrid', 'Cloud-Native', 'On-Premise'] as const).map((mode) => (
                   <button
                     key={mode}
@@ -444,7 +444,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                 </div>
 
                 {/* Sizing Matrix: 3 Domains Cards - 1 col on mobile, 3 col on tablet/desktop */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {/* Domain 1: Surveillance */}
                   <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
                     <div className="flex items-center gap-1.5 text-blue-400 font-bold text-xs sm:text-sm mb-2">
@@ -457,7 +457,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                     <div className="text-xs sm:text-sm font-semibold text-slate-300 mt-1">
                       {recommendation.surveillanceArchitecture.accessControlPoints} MFA Door Points
                     </div>
-                    <div className="mt-2 text-xs text-slate-400 space-y-1">
+                    <div className="mt-2 text-xs sm:text-sm text-slate-300 space-y-1">
                       {recommendation.surveillanceArchitecture.keyAnalytics.map((a, i) => (
                         <div key={i} className="truncate">• {a}</div>
                       ))}
@@ -476,7 +476,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                     <div className="text-xs sm:text-sm font-semibold text-slate-300 mt-1">
                       {recommendation.voipArchitecture.trunkCapacity}
                     </div>
-                    <div className="mt-2 text-xs text-slate-400 space-y-1">
+                    <div className="mt-2 text-xs sm:text-sm text-slate-300 space-y-1">
                       {recommendation.voipArchitecture.omnichannelFeatures.map((f, i) => (
                         <div key={i} className="truncate">• {f}</div>
                       ))}
@@ -495,7 +495,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                     <div className="text-xs sm:text-sm font-semibold text-slate-300 mt-1">
                       {recommendation.audioArchitecture.recommendedZones} Addressable Zones
                     </div>
-                    <div className="mt-2 text-xs text-slate-400 space-y-1">
+                    <div className="mt-2 text-xs sm:text-sm text-slate-300 space-y-1">
                       {recommendation.audioArchitecture.speakerTypes.map((s, i) => (
                         <div key={i} className="truncate">• {s}</div>
                       ))}

@@ -238,7 +238,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                       <div className="text-[11px] sm:text-xs font-semibold text-emerald-300 mt-1">
                         Sarah Jenkins (VP)
                       </div>
-                      <div className="text-[10px] text-slate-200">Access: GRANTED • Turnstile 2</div>
+                      <div className="text-[11px] text-slate-200">Access: GRANTED • Turnstile 2</div>
                     </div>
 
                     {/* Bounding Box 2: Anomaly / Detection */}
@@ -250,7 +250,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                         <div className="text-[11px] sm:text-xs font-semibold text-amber-200 mt-1">
                           Loitering Anomaly &gt; 120s
                         </div>
-                        <div className="text-[10px] text-slate-200">Bay 2 Perimeter Alert Sent</div>
+                        <div className="text-[11px] text-slate-200">Bay 2 Perimeter Alert Sent</div>
                       </div>
                     ) : (
                       <div className="relative p-2.5 sm:p-3 rounded-lg border border-cyan-400/60 bg-cyan-950/40 backdrop-blur-xs max-w-full sm:w-44 xs:ml-auto">
@@ -298,7 +298,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                       <span className={`w-2 h-2 rounded-full ${cam.status === 'ALERT' ? 'bg-amber-400 animate-ping' : 'bg-emerald-400'}`} />
                     </div>
                     <div className="text-xs font-semibold text-slate-200 mt-1 truncate">{cam.name}</div>
-                    <div className="text-[10px] text-slate-400 truncate">{cam.location}</div>
+                    <div className="text-[11px] text-slate-400 truncate">{cam.location}</div>
                   </button>
                 ))}
               </div>
@@ -329,13 +329,13 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-white truncate">{log.userName}</span>
-                        <span className="font-mono text-[10px] text-slate-300">{log.timestamp}</span>
+                        <span className="font-bold text-white truncate text-xs sm:text-sm">{log.userName}</span>
+                        <span className="font-mono text-[11px] text-slate-300">{log.timestamp}</span>
                       </div>
                       <div className="flex items-center justify-between mt-1 text-[11px]">
                         <span className="text-slate-300">{log.authMethod}</span>
                         <span
-                          className={`font-semibold px-1.5 py-0.5 rounded text-[10px] ${
+                          className={`font-semibold px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] ${
                             log.status === 'GRANTED'
                               ? 'bg-emerald-500/20 text-emerald-300'
                               : 'bg-red-500/20 text-red-300'
@@ -344,7 +344,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                           {log.status} ({log.matchScore})
                         </span>
                       </div>
-                      <div className="text-[10px] text-slate-400 mt-1 truncate">{log.location}</div>
+                      <div className="text-[11px] text-slate-400 mt-1 truncate">{log.location}</div>
                     </div>
                   ))}
                 </div>
