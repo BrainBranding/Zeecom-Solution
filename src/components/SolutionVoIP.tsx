@@ -334,7 +334,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                       onClick={() => setActiveTab('crm')}
                       aria-pressed={activeTab === 'crm'}
                       aria-label="Show CRM Customer Dossier"
-                      className={`min-h-[40px] px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
+                      className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
                         activeTab === 'crm' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-300 hover:text-white'
                       }`}
                     >
@@ -344,7 +344,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                       onClick={() => setActiveTab('omnichannel')}
                       aria-pressed={activeTab === 'omnichannel'}
                       aria-label="Show Omnichannel Inbox"
-                      className={`min-h-[40px] px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
+                      className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
                         activeTab === 'omnichannel' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-300 hover:text-white'
                       }`}
                     >
@@ -354,7 +354,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                       onClick={() => setActiveTab('analytics')}
                       aria-pressed={activeTab === 'analytics'}
                       aria-label="Show AI Speech Analytics"
-                      className={`min-h-[40px] px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
+                      className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
                         activeTab === 'analytics' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'text-slate-300 hover:text-white'
                       }`}
                     >
@@ -374,7 +374,7 @@ export const SolutionVoIP: React.FC<SolutionVoIPProps> = ({ onOpenConsultation }
                         const found = MOCK_CRM_CUSTOMERS.find(c => c.id === e.target.value);
                         if (found) setActiveCustomer(found);
                       }}
-                      className="bg-slate-900 border border-slate-800 text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-emerald-500 min-h-[36px]"
+                      className="bg-slate-900 border border-slate-800 text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-emerald-500 min-h-[44px]"
                     >
                       {MOCK_CRM_CUSTOMERS.map(c => (
                         <option key={c.id} value={c.id}>{c.name} ({c.company})</option>

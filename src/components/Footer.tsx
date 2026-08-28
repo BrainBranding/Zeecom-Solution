@@ -46,12 +46,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
             <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-4">
               Core Solutions
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <ul className="space-y-1.5 text-xs sm:text-sm">
               <li>
                 <button
                   onClick={() => onNavigate('ai-surveillance')}
                   aria-label="Navigate to AI Surveillance and Access"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center gap-2 text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center gap-2 text-left text-slate-300 w-full py-1.5"
                 >
                   <Shield className="w-4 h-4 text-blue-400 shrink-0" />
                   <span>AI Surveillance & Access</span>
@@ -61,7 +61,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <button
                   onClick={() => onNavigate('voip-crm')}
                   aria-label="Navigate to VoIP Integrated CRM"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center gap-2 text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center gap-2 text-left text-slate-300 w-full py-1.5"
                 >
                   <PhoneCall className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>VoIP Integrated CRM</span>
@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <button
                   onClick={() => onNavigate('ip-audio')}
                   aria-label="Navigate to IP Audio and PA Systems"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center gap-2 text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center gap-2 text-left text-slate-300 w-full py-1.5"
                 >
                   <Volume2 className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>IP-Audio & PA Systems</span>
@@ -81,7 +81,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <button
                   onClick={() => onNavigate('industries')}
                   aria-label="Navigate to Industries and Vertical Use Cases"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full py-1.5"
                 >
                   <span>Industries & Vertical Use Cases</span>
                 </button>
@@ -94,12 +94,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
             <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-4">
               Interactive Tools
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <ul className="space-y-1.5 text-xs sm:text-sm">
               <li>
                 <button
                   onClick={() => onNavigate('ai-architect')}
                   aria-label="Navigate to AI Solution Architect Blueprint"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full py-1.5"
                 >
                   <span>AI Solution Architect</span>
                 </button>
@@ -108,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <button
                   onClick={() => onNavigate('configurator')}
                   aria-label="Navigate to System Sizer and Quote Estimator"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full py-1.5"
                 >
                   <span>System Sizer & Estimator</span>
                 </button>
@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <button
                   onClick={() => onNavigate('deployment')}
                   aria-label="Navigate to AI Security Readiness Audit"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full py-1.5"
                 >
                   <span>AI Security Readiness Audit</span>
                 </button>
@@ -126,7 +126,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <button
                   onClick={() => onNavigate('overview')}
                   aria-label="Navigate to About ZEECOM and Mission"
-                  className="min-h-[40px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full"
+                  className="min-h-[44px] hover:text-cyan-400 transition-colors flex items-center text-left text-slate-300 w-full py-1.5"
                 >
                   <span>About ZEECOM & Mission</span>
                 </button>
@@ -139,8 +139,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
             <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-4">
               Head Office & Contact
             </h3>
-            <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-              <div className="flex items-start gap-2">
+            <div className="space-y-2 text-xs sm:text-sm text-slate-300">
+              <div className="flex items-start gap-2 py-1">
                 <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold text-white block">{COMPANY_INFO.address.full}</span>
@@ -148,13 +148,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 </div>
               </div>
 
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2 py-1">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
                   <a
                     href={`tel:${COMPANY_INFO.phoneTel}`}
                     aria-label={`Call direct office landline at ${COMPANY_INFO.phone}`}
-                    className="font-mono text-emerald-300 hover:text-emerald-200 transition-colors font-bold block min-h-[36px] flex items-center"
+                    className="font-mono text-emerald-300 hover:text-emerald-200 transition-colors font-bold block min-h-[44px] flex items-center"
                   >
                     {COMPANY_INFO.phone}
                   </a>
@@ -162,7 +162,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 </div>
               </div>
 
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2 py-1">
                 <Globe className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <div>
                   <a
@@ -170,7 +170,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Visit official portal"
-                    className="text-cyan-300 hover:text-cyan-200 font-semibold block transition-colors min-h-[36px] flex items-center truncate"
+                    className="text-cyan-300 hover:text-cyan-200 font-semibold block transition-colors min-h-[44px] flex items-center truncate"
                   >
                     {COMPANY_INFO.website}
                   </a>
@@ -178,13 +178,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 </div>
               </div>
 
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2 py-1">
                 <Mail className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <div>
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
                     aria-label={`Send email to ${COMPANY_INFO.email}`}
-                    className="text-slate-300 hover:text-white transition-colors min-h-[36px] flex items-center truncate"
+                    className="text-slate-300 hover:text-white transition-colors min-h-[44px] flex items-center truncate"
                   >
                     {COMPANY_INFO.email}
                   </a>
@@ -214,14 +214,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
               target="_blank"
               rel="noopener noreferrer"
               aria-label="ZEECOM Website link"
-              className="text-cyan-400 hover:underline min-h-[36px] flex items-center"
+              className="text-cyan-400 hover:underline min-h-[44px] flex items-center"
             >
               {COMPANY_INFO.website}
             </a>
             <button
               onClick={scrollToTop}
               aria-label="Scroll to top of page"
-              className="min-h-[40px] min-w-[40px] p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400 flex items-center justify-center"
+              className="min-h-[44px] min-w-[44px] p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400 flex items-center justify-center"
               title="Scroll to Top"
             >
               <ArrowUp className="w-4 h-4" />

@@ -203,14 +203,16 @@ export const SolutionAudio: React.FC<SolutionAudioProps> = ({ onOpenConsultation
                 <div className="flex items-center gap-2">
                   <button
                     onClick={selectAllZones}
-                    className="min-h-[36px] px-2 text-xs text-amber-400 hover:text-amber-300 font-semibold"
+                    aria-label="Select all audio zones"
+                    className="min-h-[44px] px-3 py-1.5 inline-flex items-center text-xs sm:text-sm text-amber-400 hover:text-amber-300 font-semibold"
                   >
                     Select All
                   </button>
                   <span className="text-slate-600">|</span>
                   <button
                     onClick={() => setSelectedZoneIds([])}
-                    className="min-h-[36px] px-2 text-xs text-slate-400 hover:text-white"
+                    aria-label="Deselect all audio zones"
+                    className="min-h-[44px] px-3 py-1.5 inline-flex items-center text-xs sm:text-sm text-slate-400 hover:text-white font-semibold"
                   >
                     Deselect
                   </button>

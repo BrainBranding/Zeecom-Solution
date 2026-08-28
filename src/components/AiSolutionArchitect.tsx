@@ -239,7 +239,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
               key={idx}
               onClick={() => applyPreset(preset)}
               aria-label={`Apply preset ${preset.name}`}
-              className="min-h-[40px] px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/40 text-xs sm:text-sm font-medium text-slate-300 transition-colors flex items-center"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/40 text-xs sm:text-sm font-medium text-slate-300 transition-colors flex items-center justify-center"
             >
               {preset.name}
             </button>

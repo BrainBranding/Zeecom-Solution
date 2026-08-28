@@ -232,7 +232,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                   <div className="relative z-10 my-auto grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-6 p-2 sm:p-4">
                     {/* Bounding Box 1: Verified Face */}
                     <div className="relative p-2.5 sm:p-3 rounded-lg border-2 border-emerald-400/80 bg-emerald-950/40 backdrop-blur-xs max-w-full sm:w-48 shadow-lg shadow-emerald-500/10">
-                      <div className="absolute -top-3 left-2 px-1.5 py-0.5 rounded bg-emerald-500 text-slate-950 text-[9px] sm:text-[10px] font-bold tracking-tight">
+                      <div className="absolute -top-3 left-2 px-1.5 py-0.5 rounded bg-emerald-500 text-slate-950 text-[10px] font-bold tracking-tight">
                         99.87% FACE VERIFIED
                       </div>
                       <div className="text-[11px] sm:text-xs font-semibold text-emerald-300 mt-1">
@@ -244,7 +244,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                     {/* Bounding Box 2: Anomaly / Detection */}
                     {selectedCam.id === 'CAM-03' || anomalySimulated ? (
                       <div className="relative p-2.5 sm:p-3 rounded-lg border-2 border-amber-400/90 bg-amber-950/40 backdrop-blur-xs max-w-full sm:w-52 shadow-lg shadow-amber-500/20 xs:ml-auto animate-pulse">
-                        <div className="absolute -top-3 left-2 px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 text-[9px] sm:text-[10px] font-bold">
+                        <div className="absolute -top-3 left-2 px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 text-[10px] font-bold">
                           AI BEHAVIOR ALERT (0.94)
                         </div>
                         <div className="text-[11px] sm:text-xs font-semibold text-amber-200 mt-1">
@@ -254,7 +254,7 @@ export const SolutionSurveillance: React.FC<SolutionSurveillanceProps> = ({ onOp
                       </div>
                     ) : (
                       <div className="relative p-2.5 sm:p-3 rounded-lg border border-cyan-400/60 bg-cyan-950/40 backdrop-blur-xs max-w-full sm:w-44 xs:ml-auto">
-                        <div className="absolute -top-3 left-2 px-1.5 py-0.5 rounded bg-cyan-500 text-slate-950 text-[9px] sm:text-[10px] font-bold">
+                        <div className="absolute -top-3 left-2 px-1.5 py-0.5 rounded bg-cyan-500 text-slate-950 text-[10px] font-bold">
                           PERSON (0.98)
                         </div>
                         <div className="text-[11px] sm:text-xs font-semibold text-cyan-200 mt-1">Authorized Path</div>

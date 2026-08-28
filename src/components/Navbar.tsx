@@ -35,14 +35,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
               <span className="truncate">{COMPANY_INFO.address.full}</span>
             </div>
           </div>
-          <div className="flex items-center gap-2.5 sm:gap-4 text-[11px] shrink-0">
+          <div className="flex items-center gap-2 sm:gap-4 text-xs shrink-0">
             <a
               href={`tel:${COMPANY_INFO.phoneTel}`}
-              className="text-emerald-400 hover:text-emerald-300 font-mono font-bold flex items-center gap-1 transition-colors min-h-[32px] sm:min-h-auto"
+              className="text-emerald-400 hover:text-emerald-300 font-mono font-bold flex items-center gap-1.5 transition-colors min-h-[44px] py-1"
               title="Direct Telephone Line"
               aria-label={`Call ZEECOM at ${COMPANY_INFO.phone}`}
             >
-              <Phone className="w-3 h-3 text-emerald-400 shrink-0" />
+              <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span className="truncate">{COMPANY_INFO.phone}</span>
             </a>
             <span className="text-slate-600 hidden sm:inline">•</span>
@@ -50,19 +50,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
               href={COMPANY_INFO.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium hidden sm:flex items-center gap-1"
+              className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium hidden sm:flex items-center gap-1 min-h-[44px]"
               aria-label="Visit official website"
             >
-              <Globe className="w-3 h-3 shrink-0" />
+              <Globe className="w-3.5 h-3.5 shrink-0" />
               <span>{COMPANY_INFO.website}</span>
             </a>
             <span className="text-slate-600 hidden md:inline">•</span>
             <button
               onClick={onOpenConsultation}
-              className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium hidden xs:flex items-center gap-1 text-[11px]"
+              className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex items-center gap-1 text-xs min-h-[44px] px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/20"
               aria-label="Request Site Survey"
             >
-              Survey →
+              <span>Survey →</span>
             </button>
           </div>
         </div>
@@ -335,23 +335,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
           </button>
 
           {/* Quick Contact Card in Mobile Menu */}
-          <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 mt-3">
-            <div className="flex items-center gap-2 text-sm text-emerald-400 font-bold">
-              <Phone className="w-4 h-4" />
-              <a href={`tel:${COMPANY_INFO.phoneTel}`} className="font-mono">
-                Call Direct: {COMPANY_INFO.phone}
-              </a>
-            </div>
-            <div className="flex items-start gap-2 text-xs text-slate-400">
+          <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1 mt-3">
+            <a
+              href={`tel:${COMPANY_INFO.phoneTel}`}
+              aria-label={`Call direct ${COMPANY_INFO.phone}`}
+              className="min-h-[44px] flex items-center gap-2 text-sm text-emerald-400 font-bold font-mono py-1"
+            >
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>Call Direct: {COMPANY_INFO.phone}</span>
+            </a>
+            <div className="flex items-start gap-2 text-xs text-slate-400 py-1">
               <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
               <span>{COMPANY_INFO.address.full}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-cyan-400">
+            <a
+              href={COMPANY_INFO.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit official website"
+              className="min-h-[44px] flex items-center gap-2 text-xs text-cyan-400 py-1"
+            >
               <Globe className="w-3.5 h-3.5 shrink-0" />
-              <a href={COMPANY_INFO.websiteUrl} target="_blank" rel="noopener noreferrer">
-                {COMPANY_INFO.website}
-              </a>
-            </div>
+              <span>{COMPANY_INFO.website}</span>
+            </a>
           </div>
 
           <button
