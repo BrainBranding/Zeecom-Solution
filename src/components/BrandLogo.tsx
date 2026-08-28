@@ -131,41 +131,43 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   onClick,
   withContainer = true,
 }) => {
-  // Dimension mappings
+  // Dimension mappings with calibrated proportions & minimal empty container padding
   const dimensions = {
     xs: {
       icon: 'w-6 h-6',
       wordmark: 'h-3.5',
-      badge: 'text-[9px] px-1 py-0.2',
-      container: 'px-2 py-1 gap-1.5 rounded-lg',
+      badge: 'text-[8.5px] px-1 py-0.2',
+      container: 'px-1.5 py-0.5 gap-1.5 rounded-md',
       tagline: 'text-[9px]',
     },
     sm: {
-      icon: 'w-7 h-7',
-      wordmark: 'h-4',
-      badge: 'text-[9.5px] px-1.5 py-0.5',
-      container: 'px-2.5 py-1.5 gap-2 rounded-lg',
+      icon: 'w-7 sm:w-8 h-7 sm:h-8',
+      wordmark: 'h-4 sm:h-4.5',
+      badge: 'text-[9px] sm:text-[9.5px] px-1.5 py-0.5',
+      container: 'px-2 py-0.5 sm:px-2.5 sm:py-0.5 gap-1.5 sm:gap-2 rounded-lg',
       tagline: 'text-[10px]',
     },
     md: {
-      icon: 'w-8 h-8',
-      wordmark: 'h-5',
-      badge: 'text-[10px] px-1.5 py-0.5',
-      container: 'px-3 py-1.5 gap-2.5 rounded-xl',
+      // Header standard size: slightly increased, tight padding
+      icon: 'w-9 h-9 sm:w-10 sm:h-10',
+      wordmark: 'h-5 sm:h-6',
+      badge: 'text-[9.5px] sm:text-[10px] px-1.5 py-0.5',
+      container: 'px-2 py-0.5 sm:px-2.5 sm:py-1 gap-2 sm:gap-2.5 rounded-lg',
       tagline: 'text-[11px]',
     },
     lg: {
-      icon: 'w-10 h-10',
-      wordmark: 'h-6',
+      // Hero section size: ~25% larger with compact container padding
+      icon: 'w-12 h-12 sm:w-14 sm:h-14',
+      wordmark: 'h-7 sm:h-8',
       badge: 'text-xs px-2 py-0.5',
-      container: 'px-3.5 py-2 gap-3 rounded-xl',
+      container: 'px-2.5 py-1 sm:px-3 sm:py-1.5 gap-2.5 sm:gap-3 rounded-xl',
       tagline: 'text-xs',
     },
     xl: {
-      icon: 'w-14 h-14',
-      wordmark: 'h-8',
+      icon: 'w-16 h-16 sm:w-20 sm:h-20',
+      wordmark: 'h-10 sm:h-12',
       badge: 'text-sm px-2.5 py-1',
-      container: 'px-5 py-3 gap-3.5 rounded-2xl',
+      container: 'px-3.5 py-1.5 sm:px-4 sm:py-2 gap-3.5 sm:gap-4 rounded-2xl',
       tagline: 'text-sm',
     },
   }[size];
