@@ -2,6 +2,7 @@ import { SolutionDomain, IndustryUseCase, CameraFeed, AccessLog, CrmCustomerReco
 
 export const COMPANY_INFO = {
   name: "ZEECOM SOLUTION",
+  shortName: "ZEECOM",
   phone: "042-37455670",
   phoneTel: "04237455670",
   phoneInternational: "+92 42 37455670",
@@ -11,11 +12,11 @@ export const COMPANY_INFO = {
   salesEmail: "sales@zeecomsolution.com",
   supportEmail: "support@zeecomsolution.com",
   address: {
-    street: "181 STREET 5 , BLOCK C",
-    area: "OPF",
-    city: "LAHORE",
-    country: "PAKISTAN",
-    full: "181 STREET 5 , BLOCK C , OPF LAHORE"
+    street: "181 Street 5, Block C",
+    area: "OPF Housing Scheme",
+    city: "Lahore",
+    country: "Pakistan",
+    full: "181 Street 5, Block C, OPF Housing Scheme, Lahore, Pakistan"
   },
   tagline: "Intelligent, Integrated Systems for Physical Security, Unified Communications & IP Audio",
   foundedDescription: "ZEECOM SOLUTION is a forward-thinking technology solutions provider dedicated to delivering intelligent, integrated systems that empower organizations to operate securely, communicate seamlessly, and manage their environments with confidence.",
@@ -34,7 +35,7 @@ export const COMPANY_INFO = {
     },
     {
       title: "Reliability",
-      desc: "We deliver hardened carrier-grade systems our clients can depend on 24/7 with 99.99% uptime guarantees.",
+      desc: "We deliver hardened carrier-grade systems our clients can depend on 24/7 with enterprise-grade uptime engineering.",
       icon: "ShieldCheck"
     },
     {
@@ -44,13 +45,14 @@ export const COMPANY_INFO = {
     }
   ],
   stats: [
-    { label: "Facial Verification Accuracy", value: "99.87%", detail: "Real-time AI biometric recognition" },
-    { label: "VoIP System Reliability", value: "99.99%", detail: "Carrier-grade uptime guarantee" },
-    { label: "Max Sound Output", value: "123 dB", detail: "High-noise SPL industrial clarity" },
-    { label: "IP Phone Ecosystem", value: "450+", detail: "Certified compatible IP hardware models" },
-    { label: "SIP Trunk Providers", value: "210+", detail: "Direct interoperability verified" },
-    { label: "Scalable PA Audio Zones", value: "250+", detail: "Granular zone & speaker-level control" }
+    { label: "Facial Verification Accuracy", value: "99.87%", detail: "AI biometric benchmark capability" },
+    { label: "VoIP System Architecture", value: "99.99%", detail: "Engineered carrier-grade uptime target" },
+    { label: "Max Sound Output", value: "123 dB", detail: "High-noise SPL industrial acoustic rating" },
+    { label: "IP Phone Ecosystem", value: "450+", detail: "Supported IP hardware endpoint profiles" },
+    { label: "SIP Trunk Providers", value: "210+", detail: "Direct protocol interoperability verified" },
+    { label: "Scalable PA Audio Zones", value: "250+", detail: "Addressable zone architecture capacity" }
   ],
+  metricDisclaimer: "*All listed performance figures and statistics reflect illustrative system capabilities, lab benchmarks, or engineered equipment specifications. Actual operational performance varies depending on network conditions, ambient environment, and deployment architecture.",
   deploymentOptions: [
     {
       title: "On-Premise",

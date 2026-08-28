@@ -47,11 +47,65 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isContactOpen, setIsContactOpen] = useState(false);
 
+  // Synchronize initial URL path or hash with page sections and modals
+  React.useEffect(() => {
+    const handleLocationRoute = () => {
+      const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+
+      const pathToSectionMap: Record<string, string> = {
+        '/ai-surveillance-access-control': 'ai-surveillance',
+        '/ai-surveillance': 'ai-surveillance',
+        '/voip-crm-contact-center': 'voip-crm',
+        '/voip-crm': 'voip-crm',
+        '/ip-audio-pa-systems': 'ip-audio',
+        '/ip-audio': 'ip-audio',
+        '/industries': 'industries',
+        '/about': 'overview',
+        '/overview': 'overview',
+        '/architect': 'ai-architect',
+        '/configurator': 'configurator',
+        '/audit': 'deployment',
+      };
+
+      if (path === '/contact') {
+        setIsContactOpen(true);
+      } else if (pathToSectionMap[path]) {
+        const targetId = pathToSectionMap[path];
+        setActiveSection(targetId);
+        setTimeout(() => {
+          const el = document.getElementById(targetId);
+          el?.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      } else if (hash) {
+        if (hash === 'contact') {
+          setIsContactOpen(true);
+        } else {
+          setActiveSection(hash);
+          setTimeout(() => {
+            const el = document.getElementById(hash);
+            el?.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        }
+      }
+    };
+
+    handleLocationRoute();
+    window.addEventListener('popstate', handleLocationRoute);
+    return () => window.removeEventListener('popstate', handleLocationRoute);
+  }, []);
+
   const handleNavigate = (sectionId: string) => {
     setActiveSection(sectionId);
+    if (sectionId === 'contact') {
+      setIsContactOpen(true);
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      // Update browser history state cleanly without page reload
+      window.history.pushState(null, '', `#${sectionId}`);
     }
   };
 

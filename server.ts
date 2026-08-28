@@ -232,6 +232,156 @@ Provide a structured assessment JSON:
   }
 });
 
+// Consultation & Engineering Inquiries Endpoint with Server-Side Validation & Spam Filtering
+app.post("/api/consultation", (req: Request, res: Response) => {
+  try {
+    const {
+      fullName,
+      email,
+      phone,
+      company,
+      facilityType,
+      facilitySize,
+      primaryDomain,
+      message,
+      // Honeypot spam trap
+      website_check,
+      formLoadedAt,
+    } = req.body;
+
+    // 1. Honeypot check: If hidden honeypot field is filled by bot, silently reject
+    if (website_check) {
+      return res.status(400).json({
+        success: false,
+        error: "Spam detection triggered. Please retry using standard form submission.",
+      });
+    }
+
+    // 2. Timing check: Submissions under 1.2 seconds are typical automated bots
+    if (formLoadedAt) {
+      const elapsed = Date.now() - Number(formLoadedAt);
+      if (elapsed < 1200) {
+        return res.status(400).json({
+          success: false,
+          error: "Submission submitted too rapidly. Please retry.",
+        });
+      }
+    }
+
+    // 3. Server-side required field validation
+    if (!fullName || typeof fullName !== "string" || fullName.trim().length < 2) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a valid contact name.",
+      });
+    }
+
+    if (!email || typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a valid corporate email address.",
+      });
+    }
+
+    if (!phone || typeof phone !== "string" || phone.trim().length < 6) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a valid direct contact telephone number.",
+      });
+    }
+
+    const inquiryId = `ZEC-${Date.now().toString().slice(-6)}`;
+    const sanitizedData = {
+      inquiryId,
+      fullName: fullName.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      company: company ? String(company).trim() : "Direct Inquirer",
+      facilityType: facilityType || "Commercial / Industrial",
+      facilitySize: facilitySize || "Not specified",
+      primaryDomain: primaryDomain || "Integrated Solution",
+      message: message ? String(message).trim() : "",
+      receivedAt: new Date().toISOString(),
+      privacyNoticeAcknowledged: true,
+    };
+
+    console.log(`[CONSULTATION_INQUIRY] ${inquiryId} received from ${sanitizedData.fullName} (${sanitizedData.company}) - Phone: ${sanitizedData.phone}`);
+
+    return res.status(200).json({
+      success: true,
+      inquiryId,
+      message: `Thank you, ${sanitizedData.fullName}. Your engineering inquiry (${inquiryId}) has been received by ZEECOM SOLUTION. Our technical solutions team will review your requirements and reach out within 24 business hours.`,
+      data: sanitizedData,
+    });
+  } catch (err: any) {
+    console.error("Consultation submission error:", err);
+    return res.status(500).json({
+      success: false,
+      error: "An unexpected server error occurred while processing your request. Please call our direct line at 042-37455670.",
+    });
+  }
+});
+
+// Explicit robots.txt endpoint
+app.get("/robots.txt", (req: Request, res: Response) => {
+  res.setHeader("Content-Type", "text/plain");
+  res.send(`User-agent: *
+Allow: /
+
+Sitemap: https://zeecomsolution.com/sitemap.xml
+`);
+});
+
+// Explicit sitemap.xml endpoint
+app.get("/sitemap.xml", (req: Request, res: Response) => {
+  res.setHeader("Content-Type", "application/xml");
+  res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://zeecomsolution.com/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/#ai-surveillance</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/#voip-crm</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/#ip-audio</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/#industries</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/#about</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/#contact</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>`);
+});
+
 // Vite middleware in dev or static files in production
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
