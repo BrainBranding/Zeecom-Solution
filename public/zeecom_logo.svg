@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <!-- Clean Light Canvas / Transparent -->
+  <rect width="500" height="500" rx="36" fill="#020617"/>
+  <rect x="6" y="6" width="488" height="488" rx="30" stroke="#0ea5e9" stroke-width="4" stroke-opacity="0.3"/>
+
+  <!-- Logo Mark Graphic -->
+  <g transform="translate(60, 50) scale(3.8)">
+    <!-- 1. Top-Left Geometric Bracket -->
+    <path
+      d="M 12 12 H 52 L 32 32 H 24 V 40 L 12 52 Z"
+      fill="url(#zeecom_bracket_grad)"
+    />
+
+    <!-- 2. Radiant Gold Diagonal Stripe -->
+    <path
+      d="M 12 90 L 12 72 L 66 18 L 80 18 L 26 90 Z"
+      fill="url(#zeecom_gold_grad)"
+    />
+
+    <!-- 3. Forward Arrow Diagonal Stripe -->
+    <path
+      d="M 30 90 L 78 32 L 86 32 L 38 90 Z"
+      fill="url(#zeecom_arrow_grad)"
+    />
+    <path
+      d="M 72 26 L 94 10 L 84 38 L 78 30 Z"
+      fill="url(#zeecom_arrow_grad)"
+    />
+
+    <!-- 4. Bottom-Right Geometric Bracket -->
+    <path
+      d="M 88 88 H 48 L 68 68 H 76 V 60 L 88 48 Z"
+      fill="url(#zeecom_bracket_grad)"
+    />
+  </g>
+
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="zeecom_gold_grad" x1="10" y1="90" x2="80" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B" />
+      <stop offset="0.5" stop-color="#FBBF24" />
+      <stop offset="1" stop-color="#FDE047" />
+    </linearGradient>
+    <linearGradient id="zeecom_arrow_grad" x1="30" y1="90" x2="95" y2="10" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0284C7" />
+      <stop offset="0.5" stop-color="#38BDF8" />
+      <stop offset="0.9" stop-color="#FFFFFF" />
+    </linearGradient>
+    <linearGradient id="zeecom_bracket_grad" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1" />
+      <stop offset="0.5" stop-color="#38BDF8" />
+      <stop offset="1" stop-color="#0EA5E9" />
+    </linearGradient>
+  </defs>
+</svg>

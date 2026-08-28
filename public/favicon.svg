@@ -1,13 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#020617"/>
-  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.4"/>
-  <path d="M16 20H48L24 44H48" stroke="url(#zeecom_grad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="48" cy="20" r="3.5" fill="#38bdf8"/>
-  <circle cx="16" cy="44" r="3.5" fill="#0284c7"/>
-  <defs>
-    <linearGradient id="zeecom_grad" x1="16" y1="20" x2="48" y2="44" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#0284c7"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Rounded Base Icon for Favicon -->
+  <rect width="100" height="100" rx="20" fill="#0b0f19"/>
+  <rect x="2" y="2" width="96" height="96" rx="18" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.4"/>
+
+  <!-- Scaled Zeecom Brand Icon -->
+  <g transform="translate(10, 10) scale(0.08)">
+    <!-- 1. Top-Left Bracket -->
+    <path
+      d="M 50 50 H 540 L 370 220 H 180 V 440 L 50 310 Z"
+      fill="#38BDF8"
+    />
+
+    <!-- 2. Upper Diagonal Band -->
+    <path
+      d="M 50 670 L 490 230 L 550 290 L 110 730 L 50 730 Z"
+      fill="#38BDF8"
+    />
+
+    <!-- 3. Vibrant Yellow / Gold Center Stripe -->
+    <path
+      d="M 50 810 L 680 180 L 735 235 L 140 830 L 140 950 L 50 950 Z"
+      fill="#FFCC00"
+    />
+
+    <!-- 4. Ascending Arrow Stripe & Arrowhead -->
+    <path
+      d="M 230 950 L 350 950 L 850 450 L 790 390 Z"
+      fill="#38BDF8"
+    />
+    <path
+      d="M 730 80 L 950 50 L 920 270 L 840 210 L 780 270 L 750 240 L 810 180 Z"
+      fill="#38BDF8"
+    />
+
+    <!-- 5. Bottom-Right Bracket -->
+    <path
+      d="M 950 950 H 460 L 630 780 H 820 V 560 L 950 690 Z"
+      fill="#38BDF8"
+    />
+  </g>
 </svg>

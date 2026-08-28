@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+  <!-- Clean background for standalone viewing if needed, otherwise transparent -->
+  <g>
+    <!-- 1. Top-Left Navy Bracket -->
+    <path
+      d="M 50 50 H 540 L 370 220 H 180 V 440 L 50 310 Z"
+      fill="#231846"
+    />
+
+    <!-- 2. Upper Navy Diagonal Stripe -->
+    <path
+      d="M 50 670 L 490 230 L 550 290 L 110 730 L 50 730 Z"
+      fill="#231846"
+    />
+
+    <!-- 3. Vibrant Yellow / Gold Center Stripe (Extending to Bottom-Left Corner) -->
+    <path
+      d="M 50 810 L 680 180 L 735 235 L 140 830 L 140 950 L 50 950 Z"
+      fill="#FFCC00"
+    />
+
+    <!-- 4. Lower Navy Arrow Stripe & Arrowhead -->
+    <!-- Shaft -->
+    <path
+      d="M 230 950 L 350 950 L 850 450 L 790 390 Z"
+      fill="#231846"
+    />
+    <!-- Arrowhead -->
+    <path
+      d="M 730 80 L 950 50 L 920 270 L 840 210 L 780 270 L 750 240 L 810 180 Z"
+      fill="#231846"
+    />
+
+    <!-- 5. Bottom-Right Navy Bracket (Point symmetric 180° rotation of Top-Left Bracket) -->
+    <path
+      d="M 950 950 H 460 L 630 780 H 820 V 560 L 950 690 Z"
+      fill="#231846"
+    />
+  </g>
+</svg>
