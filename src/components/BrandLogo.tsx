@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Exact ZEECOM Icon-Only Mark
- * Preserves exact uploaded geometry, deep purple (#231846), and vibrant yellow (#FFCC00).
+ * Preserves exact uploaded geometry, deep purple (#261653), and vibrant yellow (#FFD51B).
  */
 export const ZeecomIconMark: React.FC<{
   className?: string;
@@ -20,35 +20,35 @@ export const ZeecomIconMark: React.FC<{
       {/* 1. Top-Left Purple Bracket */}
       <path
         d="M 50 60 H 540 L 350 250 H 180 V 430 L 50 300 Z"
-        fill="#231846"
+        fill="#261653"
       />
 
       {/* 2. Upper Parallel Purple Diagonal Band */}
       <path
         d="M 50 670 L 490 230 L 550 290 L 110 730 L 50 730 Z"
-        fill="#231846"
+        fill="#261653"
       />
 
       {/* 3. Vibrant Yellow Center Stripe */}
       <path
         d="M 50 810 L 680 180 L 740 240 L 140 840 L 140 940 L 50 940 Z"
-        fill="#FFCC00"
+        fill="#FFD51B"
       />
 
       {/* 4. Ascending Purple Arrow Stripe & Arrowhead */}
       <path
         d="M 230 940 L 350 940 L 850 440 L 790 380 Z"
-        fill="#231846"
+        fill="#261653"
       />
       <path
         d="M 725 80 L 950 50 L 920 275 L 835 210 L 780 265 L 745 230 L 805 170 Z"
-        fill="#231846"
+        fill="#261653"
       />
 
       {/* 5. Bottom-Right Purple Bracket */}
       <path
         d="M 950 940 H 460 L 650 750 H 820 V 570 L 950 700 Z"
-        fill="#231846"
+        fill="#261653"
       />
     </svg>
   );
@@ -56,12 +56,12 @@ export const ZeecomIconMark: React.FC<{
 
 /**
  * Exact ZEECOM Wordmark Vector
- * Deep Purple (#231846) with geometric cuts matching uploaded typography
+ * Deep Purple (#261653) with geometric cuts matching uploaded typography
  */
 export const ZeecomWordmark: React.FC<{
   className?: string;
   fill?: string;
-}> = ({ className = 'h-5', fill = '#231846' }) => {
+}> = ({ className = 'h-5', fill = '#261653' }) => {
   return (
     <svg
       viewBox="0 0 880 140"
@@ -118,7 +118,7 @@ export interface BrandLogoProps {
 
 /**
  * Universal Zeecom Brand Logo Component
- * - Preserves exact uploaded logo geometry, colors (#231846 & #FFCC00), and typography.
+ * - Preserves exact uploaded logo geometry, colors (#261653 & #FFD51B), and typography.
  * - Renders within a subtle, clean white/light container so dark-purple elements remain high-contrast & crisp against the dark theme.
  */
 export const BrandLogo: React.FC<BrandLogoProps> = ({
@@ -172,7 +172,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     },
   }[size];
 
-  // Subtle clean light container to ensure dark purple #231846 elements are perfectly legible
+  // Subtle clean light container to ensure dark purple #261653 elements are perfectly legible
   const containerClasses = withContainer
     ? 'bg-white/95 hover:bg-white text-slate-950 shadow-sm shadow-black/20 border border-white/30 backdrop-blur-md transition-all'
     : '';
@@ -212,7 +212,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         <div className="mt-1.5 flex items-center justify-center gap-1.5">
           <ZeecomWordmark className={`${dimensions.wordmark} w-auto`} />
           {solutionBadge && (
-            <span className={`font-mono font-bold uppercase rounded bg-[#231846] text-[#FFCC00] ${dimensions.badge}`}>
+            <span className={`font-mono font-bold uppercase rounded bg-[#261653] text-[#FFD51B] ${dimensions.badge}`}>
               SOLUTION
             </span>
           )}
@@ -246,7 +246,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         <div className="flex items-center gap-1.5">
           <ZeecomWordmark className={`${dimensions.wordmark} w-auto shrink-0`} />
           {solutionBadge && (
-            <span className={`font-mono font-extrabold uppercase rounded bg-[#231846] text-[#FFCC00] tracking-wider ${dimensions.badge}`}>
+            <span className={`font-mono font-extrabold uppercase rounded bg-[#261653] text-[#FFD51B] tracking-wider ${dimensions.badge}`}>
               SOLUTION
             </span>
           )}

@@ -4,43 +4,43 @@
     <!-- Top-Left Purple Bracket -->
     <path
       d="M 50 60 H 540 L 350 250 H 180 V 430 L 50 300 Z"
-      fill="#231846"
+      fill="#261653"
     />
 
     <!-- Upper Parallel Purple Diagonal Band -->
     <path
       d="M 50 670 L 490 230 L 550 290 L 110 730 L 50 730 Z"
-      fill="#231846"
+      fill="#261653"
     />
 
-    <!-- Vibrant Yellow / Gold Center Stripe (Corner to Top-Right) -->
+    <!-- Vibrant Yellow Center Stripe (Corner to Top-Right) -->
     <path
       d="M 50 810 L 680 180 L 740 240 L 140 840 L 140 940 L 50 940 Z"
-      fill="#FFCC00"
+      fill="#FFD51B"
     />
 
     <!-- Ascending Purple Arrow Stripe & Arrowhead -->
     <path
       d="M 230 940 L 350 940 L 850 440 L 790 380 Z"
-      fill="#231846"
+      fill="#261653"
     />
     <path
       d="M 725 80 L 950 50 L 920 275 L 835 210 L 780 265 L 745 230 L 805 170 Z"
-      fill="#231846"
+      fill="#261653"
     />
 
     <!-- Bottom-Right Purple Bracket -->
     <path
       d="M 950 940 H 460 L 650 750 H 820 V 570 L 950 700 Z"
-      fill="#231846"
+      fill="#261653"
     />
   </g>
 
   <!-- 2. CUSTOM GEOMETRIC WORDMARK "ZEECOM" -->
-  <g id="zeecom-wordmark" transform="translate(60, 1060)" fill="#231846">
+  <g id="zeecom-wordmark" transform="translate(60, 1060)" fill="#261653">
     <!-- Z: Sliced diagonal -->
     <path d="M 0 0 H 130 V 28 L 50 112 H 130 V 140 H 0 V 112 L 80 28 H 0 Z" />
-    <path d="M 0 140 L 38 102 H 62 L 24 140 Z" fill="#FFCC00" />
+    <path d="M 0 140 L 38 102 H 62 L 24 140 Z" fill="#FFD51B" />
 
     <!-- E1: Geometric 3-bar -->
     <path d="M 155 0 H 265 V 28 H 188 V 56 H 255 V 84 H 188 V 112 H 265 V 140 H 155 Z" />
