@@ -22,7 +22,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenCons
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Brand & Tagline Badge */}
         <div className="flex flex-col items-center justify-center gap-3">
-          <BrandLogo size="lg" tagline={false} className="mb-1" />
+          <BrandLogo size="lg" format="complete" layout="horizontal" tagline={false} className="mb-1" />
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-300 text-xs font-semibold shadow-inner shadow-cyan-500/10">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
             <span>Next-Generation Intelligent Enterprise Systems</span>

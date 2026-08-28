@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" fill="none">
   <!-- 1. ICON MARK -->
   <g id="zeecom-icon">
-    <!-- Top-Left Purple Bracket -->
+    <!-- Top-Left Navy Bracket -->
     <path
       d="M 50 60 H 540 L 350 250 H 180 V 430 L 50 300 Z"
       fill="#231846"
     />
 
-    <!-- Upper Parallel Purple Diagonal Band -->
+    <!-- Upper Parallel Navy Diagonal Band -->
     <path
       d="M 50 670 L 490 230 L 550 290 L 110 730 L 50 730 Z"
       fill="#231846"
@@ -19,7 +19,7 @@
       fill="#FFCC00"
     />
 
-    <!-- Ascending Purple Arrow Stripe & Arrowhead -->
+    <!-- Ascending Navy Arrow Stripe & Arrowhead -->
     <path
       d="M 230 940 L 350 940 L 850 440 L 790 380 Z"
       fill="#231846"
@@ -29,7 +29,7 @@
       fill="#231846"
     />
 
-    <!-- Bottom-Right Purple Bracket -->
+    <!-- Bottom-Right Navy Bracket -->
     <path
       d="M 950 940 H 460 L 650 750 H 820 V 570 L 950 700 Z"
       fill="#231846"
@@ -38,20 +38,20 @@
 
   <!-- 2. CUSTOM GEOMETRIC WORDMARK "ZEECOM" -->
   <g id="zeecom-wordmark" transform="translate(60, 1060)" fill="#231846">
-    <!-- Z: Sliced diagonal -->
+    <!-- Z: Custom sliced bottom-left diagonal -->
     <path d="M 0 0 H 130 V 28 L 50 112 H 130 V 140 H 0 V 112 L 80 28 H 0 Z" />
     <path d="M 0 140 L 38 102 H 62 L 24 140 Z" fill="#FFCC00" />
 
-    <!-- E1: Geometric 3-bar -->
+    <!-- E1: Clean geometric vertical with 3 bars -->
     <path d="M 155 0 H 265 V 28 H 188 V 56 H 255 V 84 H 188 V 112 H 265 V 140 H 155 Z" />
 
     <!-- E2: Second geometric E -->
     <path d="M 290 0 H 400 V 28 H 323 V 56 H 390 V 84 H 323 V 112 H 400 V 140 H 290 Z" />
 
-    <!-- C: Beveled Octagonal Cuts -->
+    <!-- C: Angled / Beveled Corners -->
     <path d="M 460 0 H 540 V 28 H 472 L 448 52 V 88 L 472 112 H 540 V 140 H 460 L 420 100 V 40 Z" />
 
-    <!-- O: Beveled Ring -->
+    <!-- O: Beveled Hexagonal Ring -->
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"

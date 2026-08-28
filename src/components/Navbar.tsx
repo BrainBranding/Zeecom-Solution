@@ -71,11 +71,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18">
-          {/* Brand Logo */}
-          <BrandLogo
-            size="md"
-            onClick={() => handleNav('hero')}
-          />
+          {/* Brand Logo - Complete Logo with clean light container */}
+          <div className="flex items-center">
+            <BrandLogo
+              size="md"
+              format="complete"
+              onClick={() => handleNav('hero')}
+              className="hidden sm:inline-flex"
+            />
+            {/* Compact logo on very small mobile viewports */}
+            <BrandLogo
+              size="sm"
+              format="complete"
+              onClick={() => handleNav('hero')}
+              className="inline-flex sm:hidden"
+            />
+          </div>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1">
