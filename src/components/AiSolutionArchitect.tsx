@@ -212,7 +212,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
   };
 
   return (
-    <section id="ai-architect" className="py-20 bg-slate-900/60 text-slate-100 border-t border-slate-800 relative overflow-hidden">
+    <section id="ai-architect" className="py-16 sm:py-20 bg-slate-900/60 text-slate-100 border-t border-slate-800 relative overflow-hidden">
       {/* Glow background */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
 
@@ -226,43 +226,43 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
           <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Tailored Engineering Blueprint & System Sizing Engine
           </h2>
-          <p className="mt-3 text-slate-300 text-base leading-relaxed">
+          <p className="mt-3 text-slate-300 text-base sm:text-lg leading-relaxed">
             Provide your facility specifications to receive an instant, AI-calculated system architecture across AI surveillance, CRM-integrated VoIP, and IP-Audio PA zones.
           </p>
         </div>
 
         {/* Quick Presets Bar */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          <span className="text-xs font-semibold text-slate-300 mr-1">Quick Presets:</span>
+        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2">
+          <span className="text-xs sm:text-sm font-semibold text-slate-300 mr-1 w-full text-center sm:w-auto">Quick Presets:</span>
           {presets.map((preset, idx) => (
             <button
               key={idx}
               onClick={() => applyPreset(preset)}
               aria-label={`Apply preset ${preset.name}`}
-              className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/40 text-xs font-medium text-slate-300 transition-colors"
+              className="min-h-[40px] px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/40 text-xs sm:text-sm font-medium text-slate-300 transition-colors flex items-center"
             >
               {preset.name}
             </button>
           ))}
         </div>
 
-        {/* Main 2-Column Architect Workstation */}
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Main Architect Workstation - Single column on mobile, 12-col on desktop */}
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
           {/* Left Column (5/12): Input Configuration Form */}
-          <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl space-y-5">
+          <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl space-y-4 sm:space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-purple-400" />
-                <span>Facility & Operational Parameters</span>
+                <Building2 className="w-4 h-4 text-purple-400 shrink-0" />
+                <span>Facility Parameters</span>
               </h3>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">
+              <span className="text-xs px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">
                 Step 1 of 2
               </span>
             </div>
 
             {/* Facility Type */}
             <div>
-              <label htmlFor="architect-facility-type" className="text-xs font-semibold text-slate-200 block mb-1.5">
+              <label htmlFor="architect-facility-type" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1.5">
                 Facility Type / Sector:
               </label>
               <input
@@ -271,14 +271,14 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                 type="text"
                 value={facilityType}
                 onChange={(e) => setFacilityType(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
-                placeholder="e.g. Corporate HQ, Hospital, University Campus, Logistics Hub"
+                className="w-full min-h-[44px] px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                placeholder="e.g. Corporate HQ, Hospital, Campus"
               />
             </div>
 
             {/* Facility Size Slider */}
             <div>
-              <div className="flex items-center justify-between text-xs font-semibold text-slate-200 mb-1.5">
+              <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">
                 <label htmlFor="architect-facility-size">Facility Floor Area:</label>
                 <span className="text-purple-300 font-mono font-bold">{facilitySize.toLocaleString()} sq ft</span>
               </div>
@@ -292,14 +292,14 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                 value={facilitySize}
                 onChange={(e) => setFacilitySize(Number(e.target.value))}
                 aria-label="Facility floor area in square feet"
-                className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-400"
+                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-400"
               />
             </div>
 
             {/* Building & Floor Counts */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label htmlFor="architect-building-count" className="text-xs font-semibold text-slate-200 block mb-1">
+                <label htmlFor="architect-building-count" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1">
                   Buildings:
                 </label>
                 <input
@@ -310,11 +310,11 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                   max="50"
                   value={buildingCount}
                   onChange={(e) => setBuildingCount(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                  className="w-full min-h-[44px] px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
                 />
               </div>
               <div>
-                <label htmlFor="architect-floor-count" className="text-xs font-semibold text-slate-200 block mb-1">
+                <label htmlFor="architect-floor-count" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1">
                   Floors per Building:
                 </label>
                 <input
@@ -325,14 +325,14 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                   max="100"
                   value={floorCount}
                   onChange={(e) => setFloorCount(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                  className="w-full min-h-[44px] px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
                 />
               </div>
             </div>
 
             {/* Staff / Users */}
             <div>
-              <label htmlFor="architect-user-count" className="text-xs font-semibold text-slate-200 block mb-1.5">
+              <label htmlFor="architect-user-count" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1.5">
                 Employees / Daily Occupants:
               </label>
               <input
@@ -343,16 +343,16 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                 max="10000"
                 value={userCount}
                 onChange={(e) => setUserCount(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                className="w-full min-h-[44px] px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
               />
             </div>
 
             {/* Deployment Preference */}
             <div>
-              <span className="text-xs font-semibold text-slate-200 block mb-1.5">
+              <span className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1.5">
                 Deployment Model Preference:
               </span>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {(['Hybrid', 'Cloud-Native', 'On-Premise'] as const).map((mode) => (
                   <button
                     key={mode}
@@ -360,7 +360,7 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                     onClick={() => setDeploymentPreference(mode)}
                     aria-pressed={deploymentPreference === mode}
                     aria-label={`Select ${mode} deployment model`}
-                    className={`py-2 px-2 rounded-lg text-xs font-medium border transition-colors ${
+                    className={`min-h-[44px] py-2 px-2.5 rounded-xl text-xs sm:text-sm font-medium border transition-colors flex items-center justify-center text-center ${
                       deploymentPreference === mode
                         ? 'bg-purple-950/60 border-purple-500 text-purple-200 font-bold'
                         : 'bg-slate-900 border-slate-800 text-slate-300 hover:text-white'
@@ -374,8 +374,8 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
 
             {/* Operational Pain Points */}
             <div>
-              <label htmlFor="architect-pain-points" className="text-xs font-semibold text-slate-200 block mb-1.5">
-                Key Operational Challenges & Requirements:
+              <label htmlFor="architect-pain-points" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1.5">
+                Key Operational Challenges:
               </label>
               <textarea
                 id="architect-pain-points"
@@ -383,8 +383,8 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                 rows={2}
                 value={painPoints}
                 onChange={(e) => setPainPoints(e.target.value)}
-                className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 resize-none"
-                placeholder="Describe your security, phone routing, or audio broadcast needs..."
+                className="w-full p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 resize-none min-h-[70px]"
+                placeholder="Describe your security, phone routing, or audio needs..."
               />
             </div>
 
@@ -393,12 +393,12 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
               id="btn-generate-ai-blueprint"
               onClick={handleGenerateArchitecture}
               disabled={isLoading}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 hover:from-purple-400 hover:to-cyan-400 text-slate-950 font-extrabold text-xs tracking-wide uppercase shadow-lg shadow-purple-500/25 transition-all flex items-center justify-center gap-2"
+              className="w-full min-h-[44px] py-3 px-4 rounded-xl bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 hover:from-purple-400 hover:to-cyan-400 text-slate-950 font-extrabold text-xs sm:text-sm tracking-wide uppercase shadow-lg shadow-purple-500/25 transition-all flex items-center justify-center gap-2"
             >
               {isLoading ? (
                 <>
                   <RefreshCw className="w-4 h-4 animate-spin" />
-                  <span>Synthesizing Architecture Blueprint...</span>
+                  <span>Synthesizing Blueprint...</span>
                 </>
               ) : (
                 <>
@@ -411,55 +411,53 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
           </div>
 
           {/* Right Column (7/12): Architectural Blueprint Display */}
-          <div className="lg:col-span-7 p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl flex flex-col justify-between">
+          <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl flex flex-col justify-between">
             {recommendation ? (
               <div className="space-y-5">
                 {/* Blueprint Header */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <h3 className="text-lg font-bold text-white">
+                      <h3 className="text-base sm:text-lg font-bold text-white">
                         ZEECOM Integrated System Blueprint
                       </h3>
                     </div>
-                    <p className="text-xs text-slate-400 mt-0.5">
+                    <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
                       Tailored for: {facilityType} • {recommendation.deploymentModel} Deployment
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={handleCopySpec}
-                      className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-semibold flex items-center gap-1.5 transition-colors"
-                    >
-                      {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                      <span>{copied ? 'Copied to Clipboard!' : 'Copy RFP Summary'}</span>
-                    </button>
-                  </div>
+                  <button
+                    onClick={handleCopySpec}
+                    className="min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-colors w-full sm:w-auto shrink-0"
+                  >
+                    {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    <span>{copied ? 'Copied to Clipboard!' : 'Copy RFP Summary'}</span>
+                  </button>
                 </div>
 
                 {/* Executive Summary */}
-                <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-500/30 text-xs text-purple-200 leading-relaxed">
+                <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-500/30 text-xs sm:text-sm text-purple-200 leading-relaxed">
                   <span className="font-bold text-purple-300 block mb-1">Executive Recommendation:</span>
                   {recommendation.executiveSummary}
                 </div>
 
-                {/* Sizing Matrix: 3 Domains Cards */}
+                {/* Sizing Matrix: 3 Domains Cards - 1 col on mobile, 3 col on tablet/desktop */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* Domain 1: Surveillance */}
-                  <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                    <div className="flex items-center gap-1.5 text-blue-400 font-bold text-xs mb-2">
-                      <Shield className="w-4 h-4" />
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                    <div className="flex items-center gap-1.5 text-blue-400 font-bold text-xs sm:text-sm mb-2">
+                      <Shield className="w-4 h-4 shrink-0" />
                       <span>Surveillance & Access</span>
                     </div>
                     <div className="text-2xl font-extrabold text-white font-mono">
                       {recommendation.surveillanceArchitecture.cameraCount} <span className="text-xs font-normal text-slate-400">Cameras</span>
                     </div>
-                    <div className="text-xs font-semibold text-slate-300 mt-1">
+                    <div className="text-xs sm:text-sm font-semibold text-slate-300 mt-1">
                       {recommendation.surveillanceArchitecture.accessControlPoints} MFA Door Points
                     </div>
-                    <div className="mt-2 text-[11px] text-slate-400 space-y-1">
+                    <div className="mt-2 text-xs text-slate-400 space-y-1">
                       {recommendation.surveillanceArchitecture.keyAnalytics.map((a, i) => (
                         <div key={i} className="truncate">• {a}</div>
                       ))}
@@ -467,18 +465,18 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                   </div>
 
                   {/* Domain 2: VoIP */}
-                  <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                    <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-xs mb-2">
-                      <PhoneCall className="w-4 h-4" />
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                    <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-xs sm:text-sm mb-2">
+                      <PhoneCall className="w-4 h-4 shrink-0" />
                       <span>VoIP & CRM</span>
                     </div>
                     <div className="text-2xl font-extrabold text-white font-mono">
                       {recommendation.voipArchitecture.recommendedSeats} <span className="text-xs font-normal text-slate-400">Seats</span>
                     </div>
-                    <div className="text-xs font-semibold text-slate-300 mt-1">
+                    <div className="text-xs sm:text-sm font-semibold text-slate-300 mt-1">
                       {recommendation.voipArchitecture.trunkCapacity}
                     </div>
-                    <div className="mt-2 text-[11px] text-slate-400 space-y-1">
+                    <div className="mt-2 text-xs text-slate-400 space-y-1">
                       {recommendation.voipArchitecture.omnichannelFeatures.map((f, i) => (
                         <div key={i} className="truncate">• {f}</div>
                       ))}
@@ -486,18 +484,18 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                   </div>
 
                   {/* Domain 3: Audio */}
-                  <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                    <div className="flex items-center gap-1.5 text-amber-400 font-bold text-xs mb-2">
-                      <Volume2 className="w-4 h-4" />
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                    <div className="flex items-center gap-1.5 text-amber-400 font-bold text-xs sm:text-sm mb-2">
+                      <Volume2 className="w-4 h-4 shrink-0" />
                       <span>IP-Audio & PA</span>
                     </div>
                     <div className="text-2xl font-extrabold text-white font-mono">
                       {recommendation.audioArchitecture.speakerCount} <span className="text-xs font-normal text-slate-400">Speakers</span>
                     </div>
-                    <div className="text-xs font-semibold text-slate-300 mt-1">
+                    <div className="text-xs sm:text-sm font-semibold text-slate-300 mt-1">
                       {recommendation.audioArchitecture.recommendedZones} Addressable Zones
                     </div>
-                    <div className="mt-2 text-[11px] text-slate-400 space-y-1">
+                    <div className="mt-2 text-xs text-slate-400 space-y-1">
                       {recommendation.audioArchitecture.speakerTypes.map((s, i) => (
                         <div key={i} className="truncate">• {s}</div>
                       ))}
@@ -506,35 +504,35 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                 </div>
 
                 {/* Timeline & Estimated Investment Metrics */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                    <div className="p-2.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20 shrink-0">
                       <Calendar className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-[11px] text-slate-400 block">Commissioning Timeline</span>
-                      <span className="text-sm font-bold text-white font-mono">{recommendation.timelineWeeks} Weeks Turnkey</span>
+                      <span className="text-xs text-slate-400 block">Commissioning Timeline</span>
+                      <span className="text-sm sm:text-base font-bold text-white font-mono">{recommendation.timelineWeeks} Weeks Turnkey</span>
                     </div>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <div className="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                       <DollarSign className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-[11px] text-slate-400 block">Estimated System Range</span>
-                      <span className="text-sm font-bold text-white font-mono">{recommendation.estimatedInvestmentRange}</span>
+                      <span className="text-xs text-slate-400 block">Estimated System Range</span>
+                      <span className="text-sm sm:text-base font-bold text-white font-mono">{recommendation.estimatedInvestmentRange}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Key Benefits */}
                 <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <span className="text-xs font-bold text-slate-300 block mb-2">Quantifiable Value & ROI:</span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                  <span className="text-xs sm:text-sm font-bold text-slate-300 block mb-2">Quantifiable Value & ROI:</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-300">
                     {recommendation.keyBenefits.map((ben, i) => (
                       <div key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                         <span>{ben}</span>
                       </div>
                     ))}
@@ -542,34 +540,34 @@ ${recommendation.keyBenefits.map(b => '- ' + b).join('\n')}
                 </div>
 
                 {/* Direct Action */}
-                <div className="pt-2 flex items-center justify-between">
-                  <span className="text-xs text-slate-400">Ready to proceed with engineering schematics?</span>
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <span className="text-xs sm:text-sm text-slate-400">Ready to proceed with engineering schematics?</span>
                   <button
                     onClick={onOpenConsultation}
-                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-400 hover:to-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-purple-500/20"
+                    className="min-h-[44px] px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-purple-500/20 flex items-center justify-center"
                   >
-                    Request Detailed Proposal & Site Survey
+                    Request Detailed Proposal & Survey
                   </button>
                 </div>
               </div>
             ) : (
               /* Empty Placeholder State */
-              <div className="h-full min-h-[380px] flex flex-col items-center justify-center text-center p-8 border-2 border-dashed border-slate-800 rounded-xl">
+              <div className="h-full min-h-[350px] flex flex-col items-center justify-center text-center p-6 sm:p-8 border-2 border-dashed border-slate-800 rounded-xl">
                 <div className="p-4 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-4">
                   <Sparkles className="w-8 h-8" />
                 </div>
-                <h4 className="text-base font-bold text-white">
+                <h4 className="text-base sm:text-lg font-bold text-white">
                   Intelligent Architecture Blueprint Generator
                 </h4>
-                <p className="text-xs text-slate-400 max-w-sm mt-2 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-400 max-w-sm mt-2 leading-relaxed">
                   Configure your facility area and user count on the left, then click <strong>"Generate AI System Blueprint"</strong> to compute an enterprise Bill of Materials (BOM) & network architecture.
                 </p>
                 <button
                   onClick={handleGenerateArchitecture}
-                  className="mt-6 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-purple-300 border border-purple-500/30 text-xs font-semibold flex items-center gap-1.5"
+                  className="mt-6 min-h-[44px] px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-purple-300 border border-purple-500/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
                 >
                   <span>Quick Test with Corporate HQ Preset</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             )}

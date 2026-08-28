@@ -49,6 +49,10 @@ class SoundSynthesizer {
     }
   }
 
+  playDualToneChime() {
+    this.playChime();
+  }
+
   // Play emergency alert siren warble (simulating 123dB industrial warning sound)
   playEmergencySiren() {
     try {

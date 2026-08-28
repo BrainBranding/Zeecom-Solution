@@ -42,29 +42,29 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-2xl rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl p-6 sm:p-8 text-slate-100 my-8">
+      <div className="relative w-full max-w-2xl rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl p-5 sm:p-8 text-slate-100 my-8">
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute top-4 right-4 p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          className="absolute top-4 right-4 min-h-[44px] min-w-[44px] p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400 flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
 
         {!isSubmitted ? (
           <div>
-            <div className="flex items-center justify-between gap-4 mb-3">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-3 pr-12">
               <BrandLogo size="sm" tagline={false} />
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-[11px] font-bold uppercase tracking-wider">
-                <Sparkles className="w-3 h-3" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
                 <span>Turnkey Consultation</span>
               </div>
             </div>
-            <h2 className="text-2xl font-extrabold text-white">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-white">
               Schedule an Engineering Site Survey
             </h2>
-            <p className="text-xs text-slate-300 mt-1 mb-4">
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 mb-4 leading-relaxed">
               Connect directly with a ZEECOM systems architect to model acoustic coverage, SIP trunking bandwidth, and biometric security compliance.
             </p>
 
@@ -73,14 +73,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] text-slate-400 font-semibold block uppercase">Head Office</span>
-                  <span className="text-slate-200 text-[11px] font-medium leading-tight block">{COMPANY_INFO.address.full}</span>
+                  <span className="text-xs text-slate-400 font-semibold block uppercase">Head Office</span>
+                  <span className="text-slate-200 text-xs font-medium leading-tight block">{COMPANY_INFO.address.full}</span>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] text-slate-400 font-semibold block uppercase">Direct Call</span>
+                  <span className="text-xs text-slate-400 font-semibold block uppercase">Direct Call</span>
                   <a href={`tel:${COMPANY_INFO.phoneTel}`} aria-label={`Call ${COMPANY_INFO.phone}`} className="font-mono text-emerald-400 hover:underline font-bold text-xs">
                     {COMPANY_INFO.phone}
                   </a>
@@ -89,7 +89,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               <div className="flex items-start gap-2">
                 <Globe className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] text-slate-400 font-semibold block uppercase">Online Portal</span>
+                  <span className="text-xs text-slate-400 font-semibold block uppercase">Online Portal</span>
                   <a href={COMPANY_INFO.websiteUrl} target="_blank" rel="noopener noreferrer" aria-label="Visit online portal" className="text-cyan-400 hover:underline text-xs">
                     {COMPANY_INFO.website}
                   </a>
@@ -98,13 +98,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label htmlFor="contact-name" className="text-xs font-semibold text-slate-200 block mb-1">
+                  <label htmlFor="contact-name" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1">
                     Full Name *
                   </label>
                   <div className="relative">
-                    <User className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                    <User className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
                     <input
                       id="contact-name"
                       name="name"
@@ -113,17 +113,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="e.g. Alex Morgan"
-                      className="w-full pl-9 pr-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
+                      className="w-full min-h-[44px] pl-10 pr-3 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="contact-email" className="text-xs font-semibold text-slate-200 block mb-1">
+                  <label htmlFor="contact-email" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1">
                     Work Email *
                   </label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
                     <input
                       id="contact-email"
                       name="email"
@@ -132,19 +132,19 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="alex@enterprise.com"
-                      className="w-full pl-9 pr-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
+                      className="w-full min-h-[44px] pl-10 pr-3 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label htmlFor="contact-phone" className="text-xs font-semibold text-slate-200 block mb-1">
+                  <label htmlFor="contact-phone" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1">
                     Phone Number
                   </label>
                   <div className="relative">
-                    <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                    <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
                     <input
                       id="contact-phone"
                       name="phone"
@@ -152,17 +152,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+1 (555) 019-2834"
-                      className="w-full pl-9 pr-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
+                      className="w-full min-h-[44px] pl-10 pr-3 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="contact-company" className="text-xs font-semibold text-slate-200 block mb-1">
+                  <label htmlFor="contact-company" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1">
                     Company / Facility Name *
                   </label>
                   <div className="relative">
-                    <Building className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                    <Building className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
                     <input
                       id="contact-company"
                       name="company"
@@ -171,7 +171,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder="Apex Global Technologies"
-                      className="w-full pl-9 pr-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
+                      className="w-full min-h-[44px] pl-10 pr-3 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500"
                     />
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
               {/* Domains interested */}
               <div>
-                <span className="text-xs font-semibold text-slate-200 block mb-1.5">
+                <span className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1.5">
                   Solution Domains Required:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -196,14 +196,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         onClick={() => toggleDomain(dom)}
                         aria-pressed={isSel}
                         aria-label={`Toggle domain ${dom}`}
-                        className={`p-2 rounded-lg text-[11px] font-medium border transition-colors text-left flex items-center justify-between ${
+                        className={`min-h-[44px] p-2.5 rounded-xl text-xs sm:text-sm font-medium border transition-colors text-left flex items-center justify-between ${
                           isSel
                             ? 'bg-cyan-950/60 border-cyan-400 text-cyan-200'
                             : 'bg-slate-950 border-slate-800 text-slate-300'
                         }`}
                       >
                         <span className="truncate">{dom}</span>
-                        {isSel && <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />}
+                        {isSel && <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />}
                       </button>
                     );
                   })}
@@ -212,7 +212,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
               {/* Message */}
               <div>
-                <label htmlFor="contact-message" className="text-xs font-semibold text-slate-200 block mb-1">
+                <label htmlFor="contact-message" className="text-xs sm:text-sm font-semibold text-slate-200 block mb-1">
                   Project Notes & Timeline:
                 </label>
                 <textarea
@@ -222,14 +222,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Describe building count, approximate square footage, or any specific compliance goals..."
-                  className="w-full p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 resize-none"
+                  className="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 resize-none min-h-[80px]"
                 />
               </div>
 
               <button
                 type="submit"
                 aria-label="Submit Request for System Architecture"
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyan-300"
+                className="w-full min-h-[44px] py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyan-300"
               >
                 <Send className="w-4 h-4" />
                 <span>Submit Request for System Architecture</span>
@@ -243,7 +243,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h2 className="text-2xl font-bold text-white">Consultation Request Received!</h2>
-            <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
               Thank you, <strong>{name || 'Valued Client'}</strong>. A senior ZEECOM Solution Architect will review your requirements for <strong>{company || 'your facility'}</strong> and contact you at <strong>{email}</strong> within 1 business day.
             </p>
             <div className="pt-4">
@@ -253,7 +253,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   onClose();
                 }}
                 aria-label="Close Confirmation Window"
-                className="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors"
+                className="min-h-[44px] px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs sm:text-sm transition-colors flex items-center justify-center mx-auto"
               >
                 Close Window
               </button>
