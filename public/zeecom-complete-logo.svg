@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" fill="none">
+  <!-- 1. ICON MARK -->
+  <g id="zeecom-icon">
+    <!-- Top-Left Purple Bracket -->
+    <path
+      d="M 50 60 H 540 L 350 250 H 180 V 430 L 50 300 Z"
+      fill="#261653"
+    />
+
+    <!-- Upper Parallel Purple Diagonal Band -->
+    <path
+      d="M 50 670 L 490 230 L 550 290 L 110 730 L 50 730 Z"
+      fill="#261653"
+    />
+
+    <!-- Vibrant Yellow Center Stripe (Corner to Top-Right) -->
+    <path
+      d="M 50 810 L 680 180 L 740 240 L 140 840 L 140 940 L 50 940 Z"
+      fill="#FFD51B"
+    />
+
+    <!-- Ascending Purple Arrow Stripe & Arrowhead -->
+    <path
+      d="M 230 940 L 350 940 L 850 440 L 790 380 Z"
+      fill="#261653"
+    />
+    <path
+      d="M 725 80 L 950 50 L 920 275 L 835 210 L 780 265 L 745 230 L 805 170 Z"
+      fill="#261653"
+    />
+
+    <!-- Bottom-Right Purple Bracket -->
+    <path
+      d="M 950 940 H 460 L 650 750 H 820 V 570 L 950 700 Z"
+      fill="#261653"
+    />
+  </g>
+
+  <!-- 2. CUSTOM GEOMETRIC WORDMARK "ZEECOM" -->
+  <g id="zeecom-wordmark" transform="translate(60, 1060)" fill="#261653">
+    <!-- Z: Sliced diagonal -->
+    <path d="M 0 0 H 130 V 28 L 50 112 H 130 V 140 H 0 V 112 L 80 28 H 0 Z" />
+    <path d="M 0 140 L 38 102 H 62 L 24 140 Z" fill="#FFD51B" />
+
+    <!-- E1: Geometric 3-bar -->
+    <path d="M 155 0 H 265 V 28 H 188 V 56 H 255 V 84 H 188 V 112 H 265 V 140 H 155 Z" />
+
+    <!-- E2: Second geometric E -->
+    <path d="M 290 0 H 400 V 28 H 323 V 56 H 390 V 84 H 323 V 112 H 400 V 140 H 290 Z" />
+
+    <!-- C: Beveled Octagonal Cuts -->
+    <path d="M 460 0 H 540 V 28 H 472 L 448 52 V 88 L 472 112 H 540 V 140 H 460 L 420 100 V 40 Z" />
+
+    <!-- O: Beveled Ring -->
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M 595 0 H 655 L 695 40 V 100 L 655 140 H 595 L 555 100 V 40 Z M 598 28 L 583 43 V 97 L 598 112 H 652 L 667 97 V 43 L 652 28 Z"
+    />
+
+    <!-- M: Sharp Angular Stems -->
+    <path d="M 710 0 H 742 L 795 82 L 848 0 H 880 V 140 H 852 V 52 L 805 125 H 785 L 738 52 V 140 H 710 Z" />
+  </g>
+</svg>
