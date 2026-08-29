@@ -9,12 +9,21 @@ interface PrivacyPolicyPageProps {
 
 export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onOpenConsultation }) => {
   useEffect(() => {
-    document.title = 'Privacy Policy | ZEECOM SOLUTION';
+    document.title = 'Privacy Policy | ZEECOM Solution';
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Privacy Policy for ZEECOM SOLUTION. Learn how we handle client data, biometric encryption, VoIP telephony confidentiality, and engineering inquiries.');
+      metaDesc.setAttribute('content', 'Privacy Policy for ZEECOM Solution. Learn how we handle client data, biometric encryption, VoIP telephony confidentiality, and engineering inquiries in Lahore, Pakistan.');
+    }
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', 'https://zeecomsolution.com/privacy-policy');
     }
     window.scrollTo(0, 0);
+    return () => {
+      if (canonical) {
+        canonical.setAttribute('href', 'https://zeecomsolution.com/');
+      }
+    };
   }, []);
 
   return (
@@ -138,7 +147,13 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onOpenCons
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
-                <span>Direct Line: {COMPANY_INFO.phone}</span>
+                <a
+                  href={`tel:${COMPANY_INFO.phoneTel}`}
+                  className="hover:underline text-emerald-400 font-mono"
+                  aria-label={`Call ZEECOM compliance department at ${COMPANY_INFO.phone}`}
+                >
+                  Direct Line: {COMPANY_INFO.phone}
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-cyan-400 shrink-0" aria-hidden="true" />

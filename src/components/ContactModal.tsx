@@ -227,8 +227,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     <span className="text-[11px] text-slate-400 font-semibold block uppercase tracking-wider">Online Portal</span>
                     <a
                       href={COMPANY_INFO.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       aria-label="Visit ZEECOM SOLUTION online portal"
                       className="text-cyan-400 hover:underline text-xs min-h-[24px] inline-flex items-center"
                     >

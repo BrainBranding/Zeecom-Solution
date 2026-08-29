@@ -144,14 +144,12 @@ export const CompanyOverview: React.FC<CompanyOverviewProps> = ({ onNavigate }) 
               </div>
               <a
                 href={COMPANY_INFO.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-base font-bold text-cyan-400 hover:text-cyan-300 block min-h-[44px] flex items-center truncate"
               >
                 {COMPANY_INFO.website}
               </a>
               <p className="text-[11px] text-slate-400 -mt-1">
-                Online Portal & Solution Catalog
+                Online Portal &amp; Solution Catalog
               </p>
             </div>
 

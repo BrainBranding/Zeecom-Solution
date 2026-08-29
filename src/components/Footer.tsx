@@ -196,8 +196,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
                 <div>
                   <a
                     href={COMPANY_INFO.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     aria-label="Visit ZEECOM SOLUTION official portal"
                     className="text-cyan-300 hover:text-cyan-200 font-semibold transition-colors min-h-[44px] flex items-center truncate"
                   >
@@ -255,8 +253,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
             <span className="text-slate-700 hidden sm:inline" aria-hidden="true">•</span>
             <a
               href={COMPANY_INFO.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="ZEECOM Official Portal"
               className="text-cyan-400 hover:underline min-h-[44px] flex items-center text-xs"
             >

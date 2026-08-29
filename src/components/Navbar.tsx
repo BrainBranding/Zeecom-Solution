@@ -48,8 +48,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
             <span className="text-slate-600 hidden sm:inline" aria-hidden="true">•</span>
             <a
               href={COMPANY_INFO.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium hidden sm:flex items-center gap-1 min-h-[44px]"
               aria-label="Visit ZEECOM SOLUTION official website"
             >
@@ -383,8 +381,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, activeSectio
             </div>
             <a
               href={COMPANY_INFO.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="Visit ZEECOM SOLUTION official website"
               className="min-h-[44px] flex items-center gap-2 text-xs text-cyan-400 py-1"
             >

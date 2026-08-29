@@ -353,7 +353,7 @@ app.post("/api/consultation", (req: Request, res: Response) => {
       privacyNoticeAcknowledged: true,
     };
 
-    console.log(`[CONSULTATION_INQUIRY] ID: ${inquiryId} | Name: ${sanitizedData.fullName} | Company: ${sanitizedData.company} | Phone: ${sanitizedData.phone} | IP: ${clientIp}`);
+    console.log(`[CONSULTATION_INQUIRY] ID: ${inquiryId} | Domain: ${sanitizedData.primaryDomain} | Status: RECEIVED_SECURELY | Timestamp: ${sanitizedData.receivedAt}`);
 
     return res.status(200).json({
       success: true,

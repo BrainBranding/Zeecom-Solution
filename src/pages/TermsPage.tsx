@@ -9,12 +9,21 @@ interface TermsPageProps {
 
 export const TermsPage: React.FC<TermsPageProps> = ({ onOpenConsultation }) => {
   useEffect(() => {
-    document.title = 'Terms & Conditions of Service | ZEECOM SOLUTION';
+    document.title = 'Terms and Conditions | ZEECOM Solution';
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Terms and Conditions of Service for ZEECOM SOLUTION. Turnkey engineering scopes, illustrative performance benchmark disclaimers, SLA agreements, and warranty provisions.');
+      metaDesc.setAttribute('content', 'Terms and Conditions of Service for ZEECOM Solution. Turnkey engineering scopes, illustrative performance benchmark notices, SLAs, and warranties in Lahore, Pakistan.');
+    }
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', 'https://zeecomsolution.com/terms-and-conditions');
     }
     window.scrollTo(0, 0);
+    return () => {
+      if (canonical) {
+        canonical.setAttribute('href', 'https://zeecomsolution.com/');
+      }
+    };
   }, []);
 
   return (
@@ -59,7 +68,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onOpenConsultation }) => {
               <span>Official Terms of Engagement</span>
             </div>
             <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Terms &amp; Conditions of Service
+              Terms and Conditions
             </h1>
             <p className="text-xs sm:text-sm text-slate-400 mt-2">
               ZEECOM SOLUTION • Effective Date: August 2026 • Document Ref: ZEC-TOS-2026
@@ -133,11 +142,23 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onOpenConsultation }) => {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
-                <span>Telephone: {COMPANY_INFO.phone}</span>
+                <a
+                  href={`tel:${COMPANY_INFO.phoneTel}`}
+                  className="hover:underline text-emerald-400 font-mono"
+                  aria-label={`Call ZEECOM operations at ${COMPANY_INFO.phone}`}
+                >
+                  Telephone: {COMPANY_INFO.phone}
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-cyan-400 shrink-0" aria-hidden="true" />
-                <span>Official Portal: {COMPANY_INFO.website}</span>
+                <a
+                  href={COMPANY_INFO.websiteUrl}
+                  className="text-cyan-400 hover:underline"
+                  aria-label="Official Portal"
+                >
+                  Official Portal: {COMPANY_INFO.website}
+                </a>
               </div>
             </address>
           </section>

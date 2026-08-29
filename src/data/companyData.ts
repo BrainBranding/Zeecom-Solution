@@ -4,7 +4,7 @@ export const COMPANY_INFO = {
   name: "ZEECOM SOLUTION",
   shortName: "ZEECOM",
   phone: "042-37455670",
-  phoneTel: "04237455670",
+  phoneTel: "+924237455670",
   phoneInternational: "+92 42 37455670",
   website: "zeecomsolution.com",
   websiteUrl: "https://zeecomsolution.com",
