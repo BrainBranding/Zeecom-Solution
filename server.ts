@@ -232,11 +232,49 @@ Provide a structured assessment JSON:
   }
 });
 
-// Consultation & Engineering Inquiries Endpoint with Server-Side Validation & Spam Filtering
+// Rate Limiting Map for Inquiries (In-Memory IP Bucket)
+const inquiryRateLimits = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const MAX_SUBMISSIONS_PER_WINDOW = 5;
+
+// Helper to sanitize text input
+const sanitizeText = (input: unknown, maxLen = 500): string => {
+  if (typeof input !== "string") return "";
+  return input
+    .replace(/<[^>]*>?/gm, "") // Strip HTML tags
+    .replace(/javascript:/gi, "") // Strip script pseudo-protocols
+    .trim()
+    .slice(0, maxLen);
+};
+
+// Consultation & Engineering Inquiries Endpoint with Server-Side Validation, Rate Limiting & Spam Filtering
 app.post("/api/consultation", (req: Request, res: Response) => {
   try {
+    const clientIp = (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() || req.socket.remoteAddress || "unknown";
+
+    // 0. Rate Limiting Check
+    const now = Date.now();
+    const rateRecord = inquiryRateLimits.get(clientIp);
+
+    if (rateRecord) {
+      if (now < rateRecord.resetTime) {
+        if (rateRecord.count >= MAX_SUBMISSIONS_PER_WINDOW) {
+          return res.status(429).json({
+            success: false,
+            error: "Too many consultation inquiries submitted from this connection. Please try again in a few minutes or call our direct office line at 042-37455670.",
+          });
+        }
+        rateRecord.count += 1;
+      } else {
+        inquiryRateLimits.set(clientIp, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+      }
+    } else {
+      inquiryRateLimits.set(clientIp, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    }
+
     const {
       fullName,
+      name, // support both name or fullName
       email,
       phone,
       company,
@@ -249,68 +287,78 @@ app.post("/api/consultation", (req: Request, res: Response) => {
       formLoadedAt,
     } = req.body;
 
-    // 1. Honeypot check: If hidden honeypot field is filled by bot, silently reject
-    if (website_check) {
+    // 1. Honeypot check: If hidden honeypot field is filled by bot, reject
+    if (website_check && String(website_check).trim().length > 0) {
       return res.status(400).json({
         success: false,
-        error: "Spam detection triggered. Please retry using standard form submission.",
+        error: "Automated submission detected. Please submit using the interactive form.",
       });
     }
 
-    // 2. Timing check: Submissions under 1.2 seconds are typical automated bots
+    // 2. Timing check: Submissions under 1 second are typical automated bots
     if (formLoadedAt) {
       const elapsed = Date.now() - Number(formLoadedAt);
-      if (elapsed < 1200) {
+      if (elapsed < 1000) {
         return res.status(400).json({
           success: false,
-          error: "Submission submitted too rapidly. Please retry.",
+          error: "Form submitted too quickly. Please take a moment to verify your details.",
         });
       }
     }
 
-    // 3. Server-side required field validation
-    if (!fullName || typeof fullName !== "string" || fullName.trim().length < 2) {
+    // 3. Server-side required field validation & sanitization
+    const resolvedName = sanitizeText(fullName || name, 100);
+    const resolvedEmail = sanitizeText(email, 120);
+    const resolvedPhone = sanitizeText(phone, 40);
+    const resolvedCompany = sanitizeText(company, 120);
+    const resolvedFacilityType = sanitizeText(facilityType, 100);
+    const resolvedDomain = sanitizeText(primaryDomain, 200);
+    const resolvedMessage = sanitizeText(message, 2000);
+
+    if (!resolvedName || resolvedName.length < 2) {
       return res.status(400).json({
         success: false,
-        error: "Please provide a valid contact name.",
+        error: "Please provide a valid full name (minimum 2 characters).",
       });
     }
 
-    if (!email || typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!resolvedEmail || !emailRegex.test(resolvedEmail)) {
       return res.status(400).json({
         success: false,
         error: "Please provide a valid corporate email address.",
       });
     }
 
-    if (!phone || typeof phone !== "string" || phone.trim().length < 6) {
+    const phoneDigits = resolvedPhone.replace(/[^\d]/g, "");
+    if (!resolvedPhone || phoneDigits.length < 6) {
       return res.status(400).json({
         success: false,
-        error: "Please provide a valid direct contact telephone number.",
+        error: "Please provide a valid telephone number (minimum 6 digits).",
       });
     }
 
     const inquiryId = `ZEC-${Date.now().toString().slice(-6)}`;
     const sanitizedData = {
       inquiryId,
-      fullName: fullName.trim(),
-      email: email.trim(),
-      phone: phone.trim(),
-      company: company ? String(company).trim() : "Direct Inquirer",
-      facilityType: facilityType || "Commercial / Industrial",
-      facilitySize: facilitySize || "Not specified",
-      primaryDomain: primaryDomain || "Integrated Solution",
-      message: message ? String(message).trim() : "",
+      fullName: resolvedName,
+      email: resolvedEmail,
+      phone: resolvedPhone,
+      company: resolvedCompany || "Direct Facility Inquirer",
+      facilityType: resolvedFacilityType || "Commercial / Industrial Complex",
+      facilitySize: sanitizeText(facilitySize, 50) || "Not specified",
+      primaryDomain: resolvedDomain || "Turnkey Integrated Solution",
+      message: resolvedMessage,
       receivedAt: new Date().toISOString(),
       privacyNoticeAcknowledged: true,
     };
 
-    console.log(`[CONSULTATION_INQUIRY] ${inquiryId} received from ${sanitizedData.fullName} (${sanitizedData.company}) - Phone: ${sanitizedData.phone}`);
+    console.log(`[CONSULTATION_INQUIRY] ID: ${inquiryId} | Name: ${sanitizedData.fullName} | Company: ${sanitizedData.company} | Phone: ${sanitizedData.phone} | IP: ${clientIp}`);
 
     return res.status(200).json({
       success: true,
       inquiryId,
-      message: `Thank you, ${sanitizedData.fullName}. Your engineering inquiry (${inquiryId}) has been received by ZEECOM SOLUTION. Our technical solutions team will review your requirements and reach out within 24 business hours.`,
+      message: `Thank you, ${sanitizedData.fullName}. Your engineering consultation request (${inquiryId}) has been registered with ZEECOM SOLUTION. Our technical systems team will contact you within 24 business hours.`,
       data: sanitizedData,
     });
   } catch (err: any) {
@@ -325,7 +373,7 @@ app.post("/api/consultation", (req: Request, res: Response) => {
 // Explicit robots.txt endpoint
 app.get("/robots.txt", (req: Request, res: Response) => {
   res.setHeader("Content-Type", "text/plain");
-  res.send(`User-agent: *
+  res.status(200).send(`User-agent: *
 Allow: /
 
 Sitemap: https://zeecomsolution.com/sitemap.xml
@@ -335,13 +383,43 @@ Sitemap: https://zeecomsolution.com/sitemap.xml
 // Explicit sitemap.xml endpoint
 app.get("/sitemap.xml", (req: Request, res: Response) => {
   res.setHeader("Content-Type", "application/xml");
-  res.send(`<?xml version="1.0" encoding="UTF-8"?>
+  res.status(200).send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zeecomsolution.com/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/ai-surveillance-access-control</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/voip-crm-contact-center</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/ip-audio-pa-systems</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/privacy-policy</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zeecomsolution.com/terms-and-conditions</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zeecomsolution.com/#ai-surveillance</loc>

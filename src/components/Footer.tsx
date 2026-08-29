@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Shield, PhoneCall, Volume2, Mail, Phone, MapPin, Globe, Lock, ArrowUp, Info } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { BrandLogo } from './BrandLogo';
-import { LegalModal } from './LegalModal';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -10,8 +9,6 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }) => {
-  const [legalModal, setLegalModal] = useState<'privacy' | 'terms' | null>(null);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -240,23 +237,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
           <p>© {new Date().getFullYear()} ZEECOM SOLUTION. All rights reserved. {COMPANY_INFO.address.full}</p>
 
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
-            <button
-              type="button"
-              onClick={() => setLegalModal('privacy')}
+            <a
+              href="/privacy-policy"
               className="text-slate-400 hover:text-cyan-300 transition-colors underline-offset-4 hover:underline min-h-[44px] flex items-center text-xs"
               aria-label="Read Privacy Policy"
             >
               Privacy Policy
-            </button>
+            </a>
             <span className="text-slate-700 hidden sm:inline" aria-hidden="true">•</span>
-            <button
-              type="button"
-              onClick={() => setLegalModal('terms')}
+            <a
+              href="/terms-and-conditions"
               className="text-slate-400 hover:text-cyan-300 transition-colors underline-offset-4 hover:underline min-h-[44px] flex items-center text-xs"
               aria-label="Read Terms and Conditions"
             >
               Terms &amp; Conditions
-            </button>
+            </a>
             <span className="text-slate-700 hidden sm:inline" aria-hidden="true">•</span>
             <a
               href={COMPANY_INFO.websiteUrl}
@@ -279,15 +274,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenConsultation }
           </div>
         </div>
       </div>
-
-      {/* Legal & Privacy Policy Modal */}
-      {legalModal && (
-        <LegalModal
-          isOpen={Boolean(legalModal)}
-          type={legalModal}
-          onClose={() => setLegalModal(null)}
-        />
-      )}
     </footer>
   );
 };

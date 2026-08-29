@@ -32,6 +32,12 @@ const Footer = lazy(() =>
 const ContactModal = lazy(() =>
   import('./components/ContactModal').then((m) => ({ default: m.ContactModal }))
 );
+const PrivacyPolicyPage = lazy(() =>
+  import('./pages/PrivacyPolicyPage').then((m) => ({ default: m.PrivacyPolicyPage }))
+);
+const TermsPage = lazy(() =>
+  import('./pages/TermsPage').then((m) => ({ default: m.TermsPage }))
+);
 
 // Lightweight skeleton fallback to maintain exact structural layout and zero CLS
 const SectionFallback: React.FC<{ minHeight?: string }> = ({ minHeight = 'min-h-[500px]' }) => (
@@ -46,11 +52,18 @@ const SectionFallback: React.FC<{ minHeight?: string }> = ({ minHeight = 'min-h-
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
+    }
+    return '/';
+  });
 
-  // Synchronize initial URL path or hash with page sections and modals
+  // Synchronize URL path or hash with page sections and modals
   React.useEffect(() => {
     const handleLocationRoute = () => {
-      const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+      const path = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
+      setCurrentPath(path);
       const hash = window.location.hash.replace('#', '').toLowerCase();
 
       const pathToSectionMap: Record<string, string> = {
@@ -96,6 +109,16 @@ export default function App() {
   }, []);
 
   const handleNavigate = (sectionId: string) => {
+    if (currentPath !== '/') {
+      window.history.pushState(null, '', `/#${sectionId}`);
+      setCurrentPath('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+
     setActiveSection(sectionId);
     if (sectionId === 'contact') {
       setIsContactOpen(true);
@@ -112,6 +135,39 @@ export default function App() {
   const handleSelectIndustry = (_ind: IndustryUseCase) => {
     handleNavigate('industries');
   };
+
+  // Render Dedicated Permanent Crawlable Legal Pages if path matches
+  if (currentPath === '/privacy-policy') {
+    return (
+      <Suspense fallback={<SectionFallback minHeight="min-h-screen" />}>
+        <PrivacyPolicyPage onOpenConsultation={() => setIsContactOpen(true)} />
+        {isContactOpen && (
+          <Suspense fallback={null}>
+            <ContactModal
+              isOpen={isContactOpen}
+              onClose={() => setIsContactOpen(false)}
+            />
+          </Suspense>
+        )}
+      </Suspense>
+    );
+  }
+
+  if (currentPath === '/terms-and-conditions' || currentPath === '/terms') {
+    return (
+      <Suspense fallback={<SectionFallback minHeight="min-h-screen" />}>
+        <TermsPage onOpenConsultation={() => setIsContactOpen(true)} />
+        {isContactOpen && (
+          <Suspense fallback={null}>
+            <ContactModal
+              isOpen={isContactOpen}
+              onClose={() => setIsContactOpen(false)}
+            />
+          </Suspense>
+        )}
+      </Suspense>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
